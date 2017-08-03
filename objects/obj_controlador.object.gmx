@@ -52,7 +52,7 @@ unico();
 
 globalvar DINERO,PUNTOS,DOBLE,ETAPA,STAT,JUGANDO,
 MIS_TIEMPO,MIS_DINERO,MIS_CAPTURAS,
-ESPECIE,CAPTURAS,PUNTAJE,PRECIO;
+ESPECIE,CAPTURAS,PUNTAJE,PRECIO,LIMITE;
 
 DINERO = 0;
 PUNTOS = 0;
@@ -61,6 +61,37 @@ DOBLE = true;
 JUGANDO = false;
 
 randomize();
+
+LIMITE[HUIRO] = 50;
+LIMITE[CARACOL] = 100;
+LIMITE[LOCO] = 50;
+LIMITE[JERGUILLA] = 50;
+LIMITE[CONGRIO] = 25;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// TEST!!!
+
+ini_open(working_directory+"X.ini");
+load_stats("etapa0");
+ini_close();
 </string>
           </argument>
         </arguments>
@@ -184,6 +215,35 @@ else
     DOBLE = true;
     window_set_size(1280,720);
     }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="114">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// SPAWN
+
+repeat (20) {instance_create(0,0,obj_huiro)}
+repeat (40) {instance_create(0,0,obj_caracol)}
+repeat (12) {instance_create(0,0,obj_loco)}
+repeat (15) {instance_create(0,0,obj_jerguilla)}
+repeat (05) {instance_create(0,0,obj_congrio)}
 </string>
           </argument>
         </arguments>
