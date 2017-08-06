@@ -25,14 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// EXTRAER ALGAS.
+            <string>/// EXTRAER CHUNGUNGO.
 
 if (instance_number(obj_mensaje) &gt; 0)
     {
     exit;
     }
 
-obj_buzo.presa = obj_caracol;
+obj_buzo.presa = obj_chungungo;
 </string>
           </argument>
         </arguments>
@@ -57,7 +57,7 @@ obj_buzo.presa = obj_caracol;
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
-image_index = (obj_buzo.presa != obj_caracol);
+image_index = (obj_buzo.presa != obj_chungungo);
 draw_self();
 
 </string>
