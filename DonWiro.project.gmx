@@ -54,6 +54,7 @@
       <sprite>sprites\spr_boton_tienda</sprite>
       <sprite>sprites\spr_boton_loco</sprite>
       <sprite>sprites\spr_boton_menu</sprite>
+      <sprite>sprites\spr_boton_sgte</sprite>
     </sprites>
     <sprites name="Especies">
       <sprite>sprites\spr_alga_chica</sprite>
@@ -89,6 +90,10 @@
     <background>background\bck_portada</background>
     <background>background\bck_oceano</background>
     <background>background\bck_tienda</background>
+    <background>background\bck_intro01</background>
+    <background>background\bck_intro02</background>
+    <background>background\bck_intro03</background>
+    <background>background\bck_intro04</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -166,6 +171,7 @@
       <object>objects\obj_boton_caracol</object>
       <object>objects\obj_boton_locos</object>
       <object>objects\obj_boton_aceptar</object>
+      <object>objects\obj_intro</object>
     </objects>
     <object>objects\obj_buzo</object>
     <object>objects\obj_barco</object>
@@ -181,6 +187,7 @@
     <room>rooms\room_inicio</room>
     <room>rooms\room_oceano</room>
     <room>rooms\room_tienda</room>
+    <room>rooms\room_intro</room>
   </rooms>
   <constants number="15">
     <constant name="FPS">30</constant>
