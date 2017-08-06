@@ -41,3 +41,5 @@ STAT[CONGRIO,CRIAS]     = ini_read_real(etapa,"CONGRIO,crias",3);
 STAT[CONGRIO,HAMBRE]    = ini_read_real(etapa,"CONGRIO,hambre",500);
 STAT[CONGRIO,CONSUMO]   = ini_read_real(etapa,"CONGRIO,consumo",15);
 STAT[CONGRIO,APORTE]    = ini_read_real(etapa,"CARACOL,aporte",2000);
+
+// PENDIENTE agregar JAIBA y CHUNGUNGO.

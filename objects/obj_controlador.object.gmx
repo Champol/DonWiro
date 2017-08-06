@@ -67,6 +67,7 @@ LIMITE[CARACOL] = 100;
 LIMITE[LOCO] = 50;
 LIMITE[JERGUILLA] = 50;
 LIMITE[CONGRIO] = 25;
+LIMITE[JAIBA] = 50;
 </string>
           </argument>
         </arguments>
@@ -244,6 +245,7 @@ repeat (40) {instance_create(0,0,obj_caracol)}
 repeat (12) {instance_create(0,0,obj_loco)}
 repeat (15) {instance_create(0,0,obj_jerguilla)}
 repeat (05) {instance_create(0,0,obj_congrio)}
+repeat (00) {instance_create(0,0,obj_jaiba)}
 </string>
           </argument>
         </arguments>

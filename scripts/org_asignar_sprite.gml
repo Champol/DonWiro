@@ -32,4 +32,15 @@ switch (especie)
         else        {sprite_index = spr_congrio_adu}
         break;
         }
+    case JAIBA:
+        {
+        if (!edad)  {sprite_index = spr_jaiba_juv}
+        else        {sprite_index = spr_jaiba_adu}
+        break;
+        }
+    case CHUNGUNGO:
+        {
+        sprite_index = spr_chungungo;
+        break;
+        }
     }

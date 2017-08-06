@@ -45,16 +45,13 @@
     <sprites name="Interface">
       <sprite>sprites\spr_boton_inicio</sprite>
       <sprite>sprites\spr_puntaje</sprite>
-      <sprite>sprites\spr_boton_alga</sprite>
       <sprite>sprites\spr_marco</sprite>
-      <sprite>sprites\spr_boton_caracol</sprite>
-      <sprite>sprites\spr_boton_mercado</sprite>
       <sprite>sprites\spr_okey</sprite>
       <sprite>sprites\spr_boton_salir</sprite>
       <sprite>sprites\spr_boton_tienda</sprite>
-      <sprite>sprites\spr_boton_loco</sprite>
       <sprite>sprites\spr_boton_menu</sprite>
       <sprite>sprites\spr_boton_sgte</sprite>
+      <sprite>sprites\spr_boton_mercado</sprite>
     </sprites>
     <sprites name="Especies">
       <sprite>sprites\spr_alga_chica</sprite>
@@ -67,6 +64,9 @@
       <sprite>sprites\spr_jerguilla_adu</sprite>
       <sprite>sprites\spr_congrio_juv</sprite>
       <sprite>sprites\spr_congrio_adu</sprite>
+      <sprite>sprites\spr_jaiba_juv</sprite>
+      <sprite>sprites\spr_jaiba_adu</sprite>
+      <sprite>sprites\spr_chungungo</sprite>
       <sprite>sprites\spr_cadaver</sprite>
     </sprites>
     <sprites name="Objetos y Personajes">
@@ -84,6 +84,11 @@
       <sprite>sprites\spr_borde</sprite>
       <sprite>sprites\Icono</sprite>
       <sprite>sprites\spr_redtrofica</sprite>
+    </sprites>
+    <sprites name="Controles">
+      <sprite>sprites\spr_boton_huiro</sprite>
+      <sprite>sprites\spr_boton_jaiba</sprite>
+      <sprite>sprites\spr_boton_loco</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -114,8 +119,6 @@
       <script>scripts\bote_pescar.gml</script>
       <script>scripts\anzuelo_pescar.gml</script>
       <script>scripts\anzuelo_recoger.gml</script>
-      <script>scripts\buzo_detectar.gml</script>
-      <script>scripts\buzo_dirigir.gml</script>
     </scripts>
     <scripts name="Etapas">
       <script>scripts\level_load.gml</script>
@@ -136,7 +139,16 @@
     </scripts>
     <script>scripts\mensaje_crear.gml</script>
     <script>scripts\precios_defecto.gml</script>
+    <scripts name="Buzo">
+      <script>scripts\buzo_dirigir.gml</script>
+      <script>scripts\buzo_detectar.gml</script>
+      <script>scripts\buzo_esperando.gml</script>
+      <script>scripts\buzo_buscando.gml</script>
+      <script>scripts\buzo_atrapando.gml</script>
+      <script>scripts\buzo_retornando.gml</script>
+    </scripts>
     <script>scripts\precios_penalizar.gml</script>
+    <script>scripts\manguera_crear.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_oceano.shader</shader>
@@ -181,6 +193,7 @@
     <object>objects\obj_suelo</object>
     <object>objects\obj_intermareal</object>
     <object>objects\obj_mensaje</object>
+    <object>objects\obj_manguera</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_test</room>
@@ -189,7 +202,7 @@
     <room>rooms\room_tienda</room>
     <room>rooms\room_intro</room>
   </rooms>
-  <constants number="15">
+  <constants number="19">
     <constant name="FPS">30</constant>
     <constant name="HEMBRA">1</constant>
     <constant name="MACHO">0</constant>
@@ -198,6 +211,8 @@
     <constant name="JERGUILLA">2</constant>
     <constant name="LOCO">3</constant>
     <constant name="CARACOL">4</constant>
+    <constant name="JAIBA">5</constant>
+    <constant name="CHUNGUNGO">6</constant>
     <constant name="JOVEN">0</constant>
     <constant name="ADULTO">1</constant>
     <constant name="GEST">2</constant>
@@ -205,6 +220,8 @@
     <constant name="HAMBRE">4</constant>
     <constant name="CONSUMO">5</constant>
     <constant name="APORTE">6</constant>
+    <constant name="X">0</constant>
+    <constant name="Y">1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

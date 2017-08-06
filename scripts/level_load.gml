@@ -20,12 +20,12 @@ if (!ini_section_exists(etapa))
 MIS_TIEMPO = ini_read_real(etapa,"mis_tiempo",-1);
 MIS_DINERO = ini_read_real(etapa,"mis_dinero",-1);
 MIS_CAPTURAS[LOCO] = ini_read_real(etapa,"mis_locos",-1);
-MIS_CAPTURAS[ALGA] = ini_read_real(etapa,"mis_algas",-1);
+MIS_CAPTURAS[HUIRO] = ini_read_real(etapa,"mis_algas",-1);
 MIS_CAPTURAS[CONGRIO] = ini_read_real(etapa,"mis_congrios",-1);
 MIS_CAPTURAS[CARACOL] = ini_read_real(etapa,"mis_caracoles",-1);
 MIS_CAPTURAS[JERGUILLA] = ini_read_real(etapa,"mis_jerguillas",-1);
 ESPECIE[LOCO] = ini_read_real(etapa,"locos",0);
-ESPECIE[ALGA] = ini_read_real(etapa,"algas",0);
+ESPECIE[HUIRO] = ini_read_real(etapa,"algas",0);
 ESPECIE[CONGRIO] = ini_read_real(etapa,"congrios",0);
 ESPECIE[JERGUILLA] = ini_read_real(etapa,"jerguillas",0);
 ESPECIE[CARACOL] = ini_read_real(etapa,"caracoles",0);
