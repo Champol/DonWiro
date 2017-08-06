@@ -151,37 +151,6 @@ if (cadaver)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_huiro">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// COMER ALGA.
-
-if (!vivo)                              {exit}
-if (!other.vivo)                        {exit}
-if (energia_actual &gt; energia_hambre)    {exit}
-
-energia_actual += other.energia_aporte;
-other.energia_actual -= other.energia_aporte;
-presa = noone;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_suelo">
       <action>
         <libid>1</libid>
@@ -211,6 +180,37 @@ else if (alarm[5] &lt; 0)
     {
     alarm[5] = 1*FPS;
     }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_huiro">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// COMER ALGA.
+
+if (!vivo)                              {exit}
+if (!other.vivo)                        {exit}
+if (energia_actual &gt; energia_hambre)    {exit}
+
+energia_actual += other.energia_aporte;
+other.energia_actual -= other.energia_aporte;
+presa = noone;
 </string>
           </argument>
         </arguments>

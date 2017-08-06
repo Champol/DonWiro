@@ -153,6 +153,8 @@
       <object>objects\obj_loco</object>
       <object>objects\obj_jerguilla</object>
       <object>objects\obj_congrio</object>
+      <object>objects\obj_jaiba</object>
+      <object>objects\obj_chungungo</object>
     </objects>
     <objects name="Botones">
       <object>objects\obj_boton</object>
