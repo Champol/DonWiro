@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="6" enumb="4">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,14 +25,39 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// EXTRAER ALGAS.
+            <string>/// INICIALIZAR.
 
-if (instance_number(obj_mensaje) &gt; 0)
+extraer = noone;        // Instrucción.
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// QUÉ EXTRAER.
+
+obj_buzo.extraer = self.extraer;
+
+if (obj_buzo.estado == buzo_esperando)
     {
-    exit;
+    with (obj_buzo) {buzo_buscar()}
     }
-
-obj_buzo.presa = obj_alga;
 </string>
           </argument>
         </arguments>
@@ -57,9 +82,9 @@ obj_buzo.presa = obj_alga;
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
-image_index = (obj_buzo.presa != obj_alga);
-draw_self();
+image_index = (obj_buzo.extraer != self.extraer);
 
+draw_self();
 </string>
           </argument>
         </arguments>

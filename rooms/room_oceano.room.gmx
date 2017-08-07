@@ -55,13 +55,11 @@
     <instance objName="obj_suelo" x="0" y="736" name="inst_31ABA4AA" locked="0" code="" scaleX="40.2580642700195" scaleY="-1" colour="4294967295" rotation="0"/>
     <instance objName="obj_intermareal" x="928" y="512" name="inst_B4462F49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_buzo" x="928" y="192" name="inst_4322907C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boton_algas" x="1216" y="512" name="inst_C9F93913" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boton_locos" x="1216" y="640" name="inst_61B53BA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boton_buzo" x="1216" y="512" name="inst_C9F93913" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_shader" x="32" y="0" name="inst_F5595D8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pausa" x="64" y="0" name="inst_A9E2D15E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_etapas" x="0" y="0" name="inst_6025A6FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_agua" x="0" y="144" name="inst_039BCECE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boton_chungungo" x="1216" y="384" name="inst_580013B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boton_menu" x="64" y="640" name="inst_C5B268F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

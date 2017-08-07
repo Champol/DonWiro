@@ -26,6 +26,15 @@ STAT[LOCO,HAMBRE]       = ini_read_real(etapa,"LOCO,hambre",40);
 STAT[LOCO,CONSUMO]      = ini_read_real(etapa,"LOCO,consumo",2);
 STAT[LOCO,APORTE]       = ini_read_real(etapa,"LOCO,aporte",100);
 
+// PENDIENTE poner valores apropiados a la Jaiba.
+STAT[JAIBA,JOVEN]       = ini_read_real(etapa,"JAIBA,joven",20);
+STAT[JAIBA,ADULTO]      = ini_read_real(etapa,"JAIBA,adulto",100);
+STAT[JAIBA,GEST]        = ini_read_real(etapa,"JAIBA,gest",25);
+STAT[JAIBA,CRIAS]       = ini_read_real(etapa,"JAIBA,crias",4);
+STAT[JAIBA,HAMBRE]      = ini_read_real(etapa,"JAIBA,hambre",40);
+STAT[JAIBA,CONSUMO]     = ini_read_real(etapa,"JAIBA,consumo",2);
+STAT[JAIBA,APORTE]      = ini_read_real(etapa,"JAIBA,aporte",100);
+
 STAT[JERGUILLA,JOVEN]   = ini_read_real(etapa,"JERGUILLA,joven",40);
 STAT[JERGUILLA,ADULTO]  = ini_read_real(etapa,"JERGUILLA,adulto",160);
 STAT[JERGUILLA,GEST]    = ini_read_real(etapa,"JERGUILLA,gest",35);
@@ -40,6 +49,4 @@ STAT[CONGRIO,GEST]      = ini_read_real(etapa,"CONGRIO,gest",120);
 STAT[CONGRIO,CRIAS]     = ini_read_real(etapa,"CONGRIO,crias",3);
 STAT[CONGRIO,HAMBRE]    = ini_read_real(etapa,"CONGRIO,hambre",500);
 STAT[CONGRIO,CONSUMO]   = ini_read_real(etapa,"CONGRIO,consumo",15);
-STAT[CONGRIO,APORTE]    = ini_read_real(etapa,"CARACOL,aporte",2000);
-
-// PENDIENTE agregar JAIBA y CHUNGUNGO.
+STAT[CONGRIO,APORTE]    = ini_read_real(etapa,"CONGRIO,aporte",2000);

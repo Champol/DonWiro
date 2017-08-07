@@ -138,17 +138,22 @@
       <script>scripts\place_intermareal.gml</script>
     </scripts>
     <script>scripts\mensaje_crear.gml</script>
+    <script>scripts\precios_penalizar.gml</script>
     <script>scripts\precios_defecto.gml</script>
     <scripts name="Buzo">
-      <script>scripts\buzo_dirigir.gml</script>
-      <script>scripts\buzo_detectar.gml</script>
-      <script>scripts\buzo_esperando.gml</script>
-      <script>scripts\buzo_buscando.gml</script>
-      <script>scripts\buzo_atrapando.gml</script>
-      <script>scripts\buzo_retornando.gml</script>
+      <scripts name="Acciones">
+        <script>scripts\buzo_botones.gml</script>
+        <script>scripts\buzo_buscar.gml</script>
+      </scripts>
+      <scripts name="Estados">
+        <script>scripts\buzo_esperando.gml</script>
+        <script>scripts\buzo_buscando.gml</script>
+        <script>scripts\buzo_atrapando.gml</script>
+        <script>scripts\buzo_siguiendo.gml</script>
+        <script>scripts\buzo_retornando.gml</script>
+      </scripts>
+      <script>scripts\manguera_crear.gml</script>
     </scripts>
-    <script>scripts\precios_penalizar.gml</script>
-    <script>scripts\manguera_crear.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_oceano.shader</shader>
@@ -179,9 +184,7 @@
       <object>objects\obj_boton_mercado</object>
       <object>objects\obj_boton_salir</object>
       <object>objects\obj_boton_menu</object>
-      <object>objects\obj_boton_algas</object>
-      <object>objects\obj_boton_chungungo</object>
-      <object>objects\obj_boton_locos</object>
+      <object>objects\obj_boton_buzo</object>
       <object>objects\obj_boton_aceptar</object>
       <object>objects\obj_intro</object>
     </objects>
@@ -202,8 +205,10 @@
     <room>rooms\room_tienda</room>
     <room>rooms\room_intro</room>
   </rooms>
-  <constants number="19">
+  <constants number="21">
     <constant name="FPS">30</constant>
+    <constant name="H">720</constant>
+    <constant name="W">1280</constant>
     <constant name="HEMBRA">1</constant>
     <constant name="MACHO">0</constant>
     <constant name="HUIRO">0</constant>
