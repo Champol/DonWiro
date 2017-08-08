@@ -42,6 +42,15 @@
     <sound>sound\snd_perder</sound>
   </sounds>
   <sprites name="sprites">
+    <sprites name="Don Wiro">
+      <sprite>sprites\spr_don_wiro</sprite>
+      <sprite>sprites\spr_pescador</sprite>
+    </sprites>
+    <sprites name="Buzo">
+      <sprite>sprites\spr_buzo_tronco</sprite>
+      <sprite>sprites\spr_buzo_brazo</sprite>
+      <sprite>sprites\spr_buzo_pierna</sprite>
+    </sprites>
     <sprites name="Interface">
       <sprite>sprites\spr_boton_inicio</sprite>
       <sprite>sprites\spr_puntaje</sprite>
@@ -69,15 +78,11 @@
       <sprite>sprites\spr_chungungo</sprite>
       <sprite>sprites\spr_cadaver</sprite>
     </sprites>
-    <sprites name="Objetos y Personajes">
-      <sprite>sprites\spr_pescador</sprite>
-      <sprite>sprites\spr_don_wiro</sprite>
-      <sprite>sprites\spr_buzo</sprite>
+    <sprites name="Barco">
       <sprite>sprites\spr_barco</sprite>
       <sprite>sprites\spr_anzuelo</sprite>
       <sprite>sprites\spr_cana</sprite>
       <sprite>sprites\spr_canasta</sprite>
-      <sprite>sprites\spr_objetivo</sprite>
     </sprites>
     <sprites name="Otros">
       <sprite>sprites\spr_intermareal</sprite>
@@ -90,6 +95,7 @@
       <sprite>sprites\spr_boton_jaiba</sprite>
       <sprite>sprites\spr_boton_loco</sprite>
     </sprites>
+    <sprite>sprites\leseras</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_portada</background>
@@ -140,6 +146,12 @@
     <script>scripts\mensaje_crear.gml</script>
     <script>scripts\precios_penalizar.gml</script>
     <script>scripts\precios_defecto.gml</script>
+    <scripts name="Bote">
+      <script>scripts\barco_esperando.gml</script>
+      <script>scripts\barco_navegando.gml</script>
+      <script>scripts\barco_lanzando.gml</script>
+      <script>scripts\barco_pescando.gml</script>
+    </scripts>
     <scripts name="Buzo">
       <scripts name="Acciones">
         <script>scripts\buzo_botones.gml</script>
@@ -148,7 +160,7 @@
       <scripts name="Estados">
         <script>scripts\buzo_esperando.gml</script>
         <script>scripts\buzo_buscando.gml</script>
-        <script>scripts\buzo_atrapando.gml</script>
+        <script>scripts\buzo_atrapar.gml</script>
         <script>scripts\buzo_siguiendo.gml</script>
         <script>scripts\buzo_retornando.gml</script>
       </scripts>
@@ -166,8 +178,9 @@
   <objects name="objects">
     <object>objects\obj_controlador</object>
     <object>objects\obj_etapas</object>
+    <object>objects\obj_agua</object>
     <object>objects\obj_pausa</object>
-    <object>objects\obj_shader</object>
+    <object>objects\obj_pantalla</object>
     <objects name="Organismos">
       <object>objects\obj_organismo</object>
       <object>objects\obj_huiro</object>
@@ -191,12 +204,12 @@
     <object>objects\obj_buzo</object>
     <object>objects\obj_barco</object>
     <object>objects\obj_anzuelo</object>
-    <object>objects\obj_agua</object>
     <object>objects\obj_objetivo</object>
     <object>objects\obj_suelo</object>
     <object>objects\obj_intermareal</object>
     <object>objects\obj_mensaje</object>
     <object>objects\obj_manguera</object>
+    <object>objects\obj_linea</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_test</room>

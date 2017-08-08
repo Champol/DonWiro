@@ -25,9 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// ÚNICO.
+            <string>/// INICIALIZAR.
 
 unico();
+
+globalvar DOBLE,SHADER;
+
+DOBLE = true;
+SHADER = true;
 </string>
           </argument>
         </arguments>
@@ -48,13 +53,11 @@ unico();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Get Shader Uniforms
+            <string>/// CONSTANTES DEL SHADER.
 
-
-//distortion effect shader
-u_resolution_water = shader_get_uniform(shd_oceano, "iResolution");
-u_seconds_water = shader_get_uniform(shd_oceano, "iGlobalTime");
-u_texture_water = shader_get_sampler_index(shd_oceano, "tex_water");
+u_resolution_water = shader_get_uniform(shd_oceano,"iResolution");
+u_seconds_water = shader_get_uniform(shd_oceano,"iGlobalTime");
+u_texture_water = shader_get_sampler_index(shd_oceano,"tex_water");
 
 sec = 0;
 
@@ -81,7 +84,9 @@ application_surface_draw_enable(false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sec += 1 / room_speed;
+            <string>/// AGITAR AGUAS.
+
+sec += 1 / room_speed;
 </string>
           </argument>
         </arguments>
@@ -104,7 +109,8 @@ application_surface_draw_enable(false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// VOLVER A DIBUJAR NORMAL.
+
 application_surface_draw_enable(true);
 </string>
           </argument>
@@ -128,24 +134,78 @@ application_surface_draw_enable(true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw Shaders
+            <string>/// DIBUJAR IMAGEN.
 
-draw_surface(application_surface,0,0);
+draw_surface_ext(application_surface,0,0,(1+DOBLE)/2,(1+DOBLE)/2,0,-1,1);
 
-// draw wave distortion effect
-shader_set(shd_oceano);
+if (SHADER)
+    {
+    shader_set(shd_oceano);
+    shader_set_uniform_f(u_resolution_water,1280.0,720.0);
+    shader_set_uniform_f(u_seconds_water,sec);
+    texture_set_stage(u_texture_water,surface_get_texture(application_surface));
+    draw_rectangle(0,MAREA,1280,720,false);
+    shader_reset();
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="122">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// CAMBIAR TAMAÑO PANTALLA.
 
-shader_set_uniform_f(u_resolution_water,1280.0,720.0);
+if (DOBLE)
+    {
+    DOBLE = false;
+    window_set_size(512,288);
+    }
+else
+    {
+    DOBLE = true;
+    window_set_size(1280,720);
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="83">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// (DES) ACTIVAR SHADER.
 
-shader_set_uniform_f(u_seconds_water,sec);
-
-texture_set_stage(u_texture_water, surface_get_texture(application_surface));
-
-draw_rectangle(0,140,1280,720,false);
-
-shader_reset();
-
-
+SHADER = !SHADER
 </string>
           </argument>
         </arguments>

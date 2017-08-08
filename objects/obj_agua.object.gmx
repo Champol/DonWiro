@@ -27,7 +27,10 @@
             <kind>1</kind>
             <string>/// INICIALIZAR.
 
+globalvar MAREA;
+
 y = 145;
+MAREA = y;
 </string>
           </argument>
         </arguments>

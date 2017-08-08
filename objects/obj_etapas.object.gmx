@@ -170,24 +170,6 @@ if (instance_number(obj_mensaje) &gt; 0)
     {
     exit;
     }
-
-// Controlar barco.
-if (mouse_y &lt; obj_agua.y+50)
-    {
-    with (obj_barco)
-        {
-        bote_ir(mouse_x);
-        }
-    }
-/*
-// Controlar buzo.
-else if (position_meeting(mouse_x,mouse_y,obj_intermareal))
-    {
-    with (obj_buzo)
-        {
-    //        buzo_dirigir();
-        }
-    }*/
 </string>
           </argument>
         </arguments>

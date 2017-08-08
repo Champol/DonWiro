@@ -1,0 +1,3 @@
+/// ESPERANDO A QUE PIQUEN PECES.
+
+speed = 0;

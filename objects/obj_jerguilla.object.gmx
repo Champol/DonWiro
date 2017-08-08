@@ -133,7 +133,7 @@ if (vivo)
         {hspeed = +abs(hspeed)}
     if ((hspeed &gt; 0) and (x &gt; room_width-16))
         {hspeed = -abs(hspeed)}
-    if ((vspeed &lt; 0) and (y &lt; obj_agua.y+80))
+    if ((vspeed &lt; 0) and (y &lt; MAREA+80))
         {vspeed = abs(vspeed)}
     if (hspeed != 0)
         {lado = sign(hspeed)}

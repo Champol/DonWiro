@@ -27,12 +27,15 @@
             <kind>1</kind>
             <string>/// INICIALIZAR.
 
-activado = false;       // Seleccionado.
-dirigirse = false;      // Moverse hacia algún lado.
-pescando = false;       // Está lanzando la línea.
-objetivo_x = 0;         // Objetivo.
-xcana = -182;            // Caña X.
-ycana = -90;            // Caña Y.
+estado = barco_esperando;   // Comportamiento.
+
+activado = false;           // Seleccionado.
+
+xpescador = -88;            // Corrimiento.
+maxspeed = 3;               // Rapidez máxima.
+accel = 0.1;                // Aceleración.
+friccion = 0.1;             // Fricción con el agua.
+angulo = 0;                 // Animación.
 </string>
           </argument>
         </arguments>
@@ -57,17 +60,55 @@ ycana = -90;            // Caña Y.
             <kind>1</kind>
             <string>/// COMPORTAMIENTO.
 
-y = obj_agua.y;
+script_execute(estado);
 
-// Si está yendo a algún lado...
-if (dirigirse == true)
+/* ESTADOS POSIBLES:
+ * 
+ * barco_esperando;
+ * barco_navegando;
+ * barco_lanzando;
+ * barco_pescando;
+ * barco_recogiendo;
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="56">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// ELEGIR DÓNDE PESCAR.
+
+// No estaba seleccionado.
+if (!activado) {exit}
+
+// No le dijo nada.
+if (mouse_y &lt; MAREA) {exit}
+
+activado = false;
+switch (estado)
     {
-    if (abs(x-objetivo_x) &lt;= abs(hspeed)) 
+    case barco_navegando:
+    case barco_esperando:
         {
-        x = objetivo_x;
-        hspeed = 0;
-        dirigirse = false;
-        bote_pescar();
+        xstart = mouse_x;
+        estado = barco_navegando;
+        break;
         }
     }
 </string>
@@ -92,7 +133,34 @@ if (dirigirse == true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>/// DIRIGIR A UN LUGAR.
+
+// Seleccionar o desseleccionar.
+if (position_meeting(mouse_x,mouse_y,self))
+    {
+    activado = !activado;
+    exit;
+    }
+
+// Desactivado.
+if (!activado) {exit}
+
+// No le dijo nada.
+if (mouse_y &lt; MAREA) {exit}
+
+// Enviar a algún lado.
+activado = false;
+switch (estado)
+    {
+    case barco_navegando:
+    case barco_esperando:
+        {
+        xstart = mouse_x;
+        estado = barco_navegando;
+        break;
+        }
+    }
+</string>
           </argument>
         </arguments>
       </action>
@@ -116,8 +184,22 @@ if (dirigirse == true)
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
-draw_sprite(spr_cana,0,x+xcana,y+ycana);
-draw_sprite(spr_pescador,0,x-45,y-15);
+y = MAREA;
+
+angulo += 1/30;
+image_angle = 0+7*sin(angulo);
+
+// Activado.
+if (activado)
+    {
+    image_index = 1;
+    draw_self();
+    }
+// Pescador.
+image_index = 2;
+draw_self();
+// Barco.
+image_index = 0;
 draw_self();
 </string>
           </argument>
