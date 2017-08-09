@@ -77,6 +77,7 @@
       <sprite>sprites\spr_okey</sprite>
       <sprite>sprites\spr_boton_salir</sprite>
       <sprite>sprites\spr_boton_tienda</sprite>
+      <sprite>sprites\spr_etapa</sprite>
       <sprite>sprites\spr_boton_menu</sprite>
       <sprite>sprites\spr_boton_sgte</sprite>
       <sprite>sprites\spr_boton_mercado</sprite>
@@ -100,6 +101,7 @@
     <background>background\bck_portada</background>
     <background>background\bck_oceano</background>
     <background>background\bck_tienda</background>
+    <background>background\bck_intro00</background>
     <background>background\bck_intro01</background>
     <background>background\bck_intro02</background>
     <background>background\bck_intro03</background>
@@ -185,7 +187,9 @@
   <fonts name="fonts">
     <font>fonts\font_puntaje</font>
     <font>fonts\font_mensaje</font>
+    <font>fonts\font_intro</font>
     <font>fonts\font_info</font>
+    <font>fonts\font_boton</font>
   </fonts>
   <objects name="objects">
     <objects name="Controladores">
@@ -214,11 +218,12 @@
     <objects name="Botones">
       <object>objects\obj_boton</object>
       <object>objects\obj_boton_inicio</object>
+      <object>objects\obj_boton_etapa</object>
       <object>objects\obj_boton_mercado</object>
       <object>objects\obj_boton_salir</object>
       <object>objects\obj_boton_menu</object>
       <object>objects\obj_boton_aceptar</object>
-      <object>objects\obj_intro</object>
+      <object>objects\obj_boton_intro</object>
       <object>objects\obj_boton_buzo</object>
       <object>objects\obj_boton_extraer</object>
     </objects>
@@ -228,11 +233,11 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room_test</room>
     <room>rooms\room_inicio</room>
+    <room>rooms\room_intro</room>
+    <room>rooms\room_etapas</room>
     <room>rooms\room_oceano</room>
     <room>rooms\room_tienda</room>
-    <room>rooms\room_intro</room>
   </rooms>
   <constants number="22">
     <constant name="FPS">30</constant>

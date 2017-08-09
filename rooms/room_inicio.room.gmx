@@ -3,8 +3,8 @@
   <caption></caption>
   <width>1280</width>
   <height>720</height>
-  <vsnap>1</vsnap>
-  <hsnap>1</hsnap>
+  <vsnap>40</vsnap>
+  <hsnap>40</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
@@ -16,9 +16,9 @@
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1382</w>
-    <h>744</h>
-    <showGrid>0</showGrid>
+    <w>1024</w>
+    <h>600</h>
+    <showGrid>-1</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
     <showBackgrounds>-1</showBackgrounds>
@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-90</xoffset>
-    <yoffset>951</yoffset>
+    <xoffset>216</xoffset>
+    <yoffset>85</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="bck_portada" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -52,8 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_controlador" x="0" y="0" name="inst_E880A137" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boton_inicio" x="896" y="320" name="inst_B3AB18AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boton_mercado" x="896" y="448" name="inst_49186ABA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boton_inicio" x="880" y="360" name="inst_B3AB18AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boton_salir" x="80" y="652" name="inst_BBCBF7A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

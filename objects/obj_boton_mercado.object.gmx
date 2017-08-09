@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// TIENDA.
 
-room_goto(room_tienda)
+// room_goto(room_tienda);
 </string>
           </argument>
         </arguments>
