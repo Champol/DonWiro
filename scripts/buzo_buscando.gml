@@ -1,7 +1,10 @@
 /// BUSCANDO ESPECIES PARA EXTRAER.
 
 // Buscar presa.
-presa = collision_circle(x,y,radio_vision,extraer,1,0);
+var hor = x+dojos*cos(degtorad(direction));
+var ver = y-dojos*sin(degtorad(direction));
+
+presa = collision_circle(hor,ver,radio_vision,extraer,1,0);
 
 // Encontrar y perseguir.
 if (presa != noone)

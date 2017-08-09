@@ -42,26 +42,6 @@
     <sound>sound\snd_perder</sound>
   </sounds>
   <sprites name="sprites">
-    <sprites name="Don Wiro">
-      <sprite>sprites\spr_don_wiro</sprite>
-      <sprite>sprites\spr_pescador</sprite>
-    </sprites>
-    <sprites name="Buzo">
-      <sprite>sprites\spr_buzo_tronco</sprite>
-      <sprite>sprites\spr_buzo_brazo</sprite>
-      <sprite>sprites\spr_buzo_pierna</sprite>
-    </sprites>
-    <sprites name="Interface">
-      <sprite>sprites\spr_boton_inicio</sprite>
-      <sprite>sprites\spr_puntaje</sprite>
-      <sprite>sprites\spr_marco</sprite>
-      <sprite>sprites\spr_okey</sprite>
-      <sprite>sprites\spr_boton_salir</sprite>
-      <sprite>sprites\spr_boton_tienda</sprite>
-      <sprite>sprites\spr_boton_menu</sprite>
-      <sprite>sprites\spr_boton_sgte</sprite>
-      <sprite>sprites\spr_boton_mercado</sprite>
-    </sprites>
     <sprites name="Especies">
       <sprite>sprites\spr_alga_chica</sprite>
       <sprite>sprites\spr_alga_grande</sprite>
@@ -78,11 +58,28 @@
       <sprite>sprites\spr_chungungo</sprite>
       <sprite>sprites\spr_cadaver</sprite>
     </sprites>
+    <sprites name="Buzo">
+      <sprite>sprites\spr_buzo</sprite>
+      <sprite>sprites\spr_buzo_ilum</sprite>
+    </sprites>
     <sprites name="Barco">
       <sprite>sprites\spr_barco</sprite>
       <sprite>sprites\spr_anzuelo</sprite>
-      <sprite>sprites\spr_cana</sprite>
-      <sprite>sprites\spr_canasta</sprite>
+      <sprite>sprites\spr_granzuelo</sprite>
+    </sprites>
+    <sprites name="Don Wiro">
+      <sprite>sprites\spr_don_wiro</sprite>
+    </sprites>
+    <sprites name="Interface">
+      <sprite>sprites\spr_boton_inicio</sprite>
+      <sprite>sprites\spr_puntaje</sprite>
+      <sprite>sprites\spr_marco</sprite>
+      <sprite>sprites\spr_okey</sprite>
+      <sprite>sprites\spr_boton_salir</sprite>
+      <sprite>sprites\spr_boton_tienda</sprite>
+      <sprite>sprites\spr_boton_menu</sprite>
+      <sprite>sprites\spr_boton_sgte</sprite>
+      <sprite>sprites\spr_boton_mercado</sprite>
     </sprites>
     <sprites name="Otros">
       <sprite>sprites\spr_intermareal</sprite>
@@ -95,7 +92,6 @@
       <sprite>sprites\spr_boton_jaiba</sprite>
       <sprite>sprites\spr_boton_loco</sprite>
     </sprites>
-    <sprite>sprites\leseras</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_portada</background>
@@ -109,8 +105,21 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Organismos">
+      <scripts name="Peces">
+        <script>scripts\pez_nadando.gml</script>
+        <script>scripts\pez_buscando.gml</script>
+        <script>scripts\pez_cazando.gml</script>
+        <script>scripts\pez_muriendo.gml</script>
+        <script>scripts\pez_cadaver.gml</script>
+        <script>scripts\pez_pescado.gml</script>
+        <script>scripts\pez_recoger.gml</script>
+        <script>scripts\pez_recogiendo.gml</script>
+        <script>scripts\pez_limites.gml</script>
+      </scripts>
+      <script>scripts\org_crear.gml</script>
       <script>scripts\org_nacer.gml</script>
       <script>scripts\org_caracteristicas.gml</script>
+      <script>scripts\org_especie.gml</script>
       <script>scripts\org_hacerse_adulto.gml</script>
       <script>scripts\org_consumir_energia.gml</script>
       <script>scripts\org_alimentarse.gml</script>
@@ -119,12 +128,6 @@
       <script>scripts\org_morir_viejo.gml</script>
       <script>scripts\org_detectar_presa.gml</script>
       <script>scripts\org_asignar_sprite.gml</script>
-    </scripts>
-    <scripts name="Pescar">
-      <script>scripts\bote_ir.gml</script>
-      <script>scripts\bote_pescar.gml</script>
-      <script>scripts\anzuelo_pescar.gml</script>
-      <script>scripts\anzuelo_recoger.gml</script>
     </scripts>
     <scripts name="Etapas">
       <script>scripts\level_load.gml</script>
@@ -140,30 +143,33 @@
       <script>scripts\parze.gml</script>
       <script>scripts\unico.gml</script>
       <script>scripts\rand.gml</script>
-      <script>scripts\place_mar.gml</script>
-      <script>scripts\place_intermareal.gml</script>
+      <script>scripts\ubicar_en_mar.gml</script>
+      <script>scripts\ubicar_en_rocas.gml</script>
     </scripts>
     <script>scripts\mensaje_crear.gml</script>
     <script>scripts\precios_penalizar.gml</script>
     <script>scripts\precios_defecto.gml</script>
-    <scripts name="Bote">
+    <scripts name="Barco">
+      <script>scripts\barco_lanzar.gml</script>
       <script>scripts\barco_esperando.gml</script>
       <script>scripts\barco_navegando.gml</script>
-      <script>scripts\barco_lanzando.gml</script>
-      <script>scripts\barco_pescando.gml</script>
+      <scripts name="Línea">
+        <script>scripts\linea_bajando.gml</script>
+        <script>scripts\linea_recogiendo.gml</script>
+        <script>scripts\linea_esperando.gml</script>
+        <script>scripts\linea_recoger.gml</script>
+        <script>scripts\linea_recolectar.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Buzo">
-      <scripts name="Acciones">
-        <script>scripts\buzo_botones.gml</script>
-        <script>scripts\buzo_buscar.gml</script>
-      </scripts>
-      <scripts name="Estados">
-        <script>scripts\buzo_esperando.gml</script>
-        <script>scripts\buzo_buscando.gml</script>
-        <script>scripts\buzo_atrapar.gml</script>
-        <script>scripts\buzo_siguiendo.gml</script>
-        <script>scripts\buzo_retornando.gml</script>
-      </scripts>
+      <script>scripts\buzo_esperando.gml</script>
+      <script>scripts\buzo_buscando.gml</script>
+      <script>scripts\buzo_siguiendo.gml</script>
+      <script>scripts\buzo_retornando.gml</script>
+      <script>scripts\buzo_dibujar.gml</script>
+      <script>scripts\buzo_atrapar.gml</script>
+      <script>scripts\buzo_buscar.gml</script>
+      <script>scripts\buzo_botones.gml</script>
       <script>scripts\manguera_crear.gml</script>
     </scripts>
   </scripts>
@@ -176,13 +182,15 @@
     <font>fonts\font_info</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_controlador</object>
-    <object>objects\obj_etapas</object>
-    <object>objects\obj_agua</object>
-    <object>objects\obj_pausa</object>
-    <object>objects\obj_pantalla</object>
+    <objects name="Controladores">
+      <object>objects\obj_controlador</object>
+      <object>objects\obj_pantalla</object>
+      <object>objects\obj_etapas</object>
+      <object>objects\obj_agua</object>
+    </objects>
     <objects name="Organismos">
       <object>objects\obj_organismo</object>
+      <object>objects\obj_pez</object>
       <object>objects\obj_huiro</object>
       <object>objects\obj_caracol</object>
       <object>objects\obj_loco</object>
@@ -190,6 +198,13 @@
       <object>objects\obj_congrio</object>
       <object>objects\obj_jaiba</object>
       <object>objects\obj_chungungo</object>
+    </objects>
+    <objects name="Objetos">
+      <object>objects\obj_buzo</object>
+      <object>objects\obj_barco</object>
+      <object>objects\obj_linea</object>
+      <object>objects\obj_anzuelo</object>
+      <object>objects\obj_manguera</object>
     </objects>
     <objects name="Botones">
       <object>objects\obj_boton</object>
@@ -201,15 +216,11 @@
       <object>objects\obj_boton_aceptar</object>
       <object>objects\obj_intro</object>
     </objects>
-    <object>objects\obj_buzo</object>
-    <object>objects\obj_barco</object>
-    <object>objects\obj_anzuelo</object>
-    <object>objects\obj_objetivo</object>
-    <object>objects\obj_suelo</object>
-    <object>objects\obj_intermareal</object>
-    <object>objects\obj_mensaje</object>
-    <object>objects\obj_manguera</object>
-    <object>objects\obj_linea</object>
+    <objects name="Otros">
+      <object>objects\obj_suelo</object>
+      <object>objects\obj_intermareal</object>
+      <object>objects\obj_mensaje</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_test</room>
@@ -218,7 +229,7 @@
     <room>rooms\room_tienda</room>
     <room>rooms\room_intro</room>
   </rooms>
-  <constants number="21">
+  <constants number="22">
     <constant name="FPS">30</constant>
     <constant name="H">720</constant>
     <constant name="W">1280</constant>
@@ -240,6 +251,7 @@
     <constant name="APORTE">6</constant>
     <constant name="X">0</constant>
     <constant name="Y">1</constant>
+    <constant name="COLOR_LINEA">$335522</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

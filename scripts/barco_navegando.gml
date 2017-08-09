@@ -7,5 +7,9 @@ hspeed = clamp(hspeed,-maxspeed,+maxspeed);
 // Llegar.
 if (abs((x+xpescador)-xstart) <= 10*hspeed)
     {
-    estado = barco_lanzando;
+    estado = barco_esperando;
+    if (!pescando)
+        {
+        barco_lanzar();
+        }
     }

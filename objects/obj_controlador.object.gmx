@@ -205,12 +205,12 @@ if (room == room_tienda)
             <kind>1</kind>
             <string>/// SPAWN
 
-repeat (20) {instance_create(0,0,obj_huiro)}
-repeat (40) {instance_create(0,0,obj_caracol)}
-repeat (12) {instance_create(0,0,obj_loco)}
-repeat (15) {instance_create(0,0,obj_jerguilla)}
-repeat (05) {instance_create(0,0,obj_congrio)}
-repeat (00) {instance_create(0,0,obj_jaiba)}
+repeat (20) {org_crear(obj_huiro,0)}
+repeat (40) {org_crear(obj_caracol,0)}
+repeat (12) {org_crear(obj_loco,0)}
+repeat (15) {org_crear(obj_jerguilla,0)}
+repeat (05) {org_crear(obj_congrio,0)}
+repeat (00) {org_crear(obj_jaiba,0)}
 </string>
           </argument>
         </arguments>

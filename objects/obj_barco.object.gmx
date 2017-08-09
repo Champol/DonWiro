@@ -3,7 +3,7 @@
   <spriteName>spr_barco</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-50</depth>
+  <depth>500</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,12 +30,45 @@
 estado = barco_esperando;   // Comportamiento.
 
 activado = false;           // Seleccionado.
+pescando = false;           // Pescando.
 
-xpescador = -88;            // Corrimiento.
+xpescador =  00;            // Corrimiento X.
+ypescador = -44;            // Corrimiento Y.
+
 maxspeed = 3;               // Rapidez máxima.
 accel = 0.1;                // Aceleración.
 friccion = 0.1;             // Fricción con el agua.
-angulo = 0;                 // Animación.
+
+angulo = 0;                 // Omega oscilación.
+amplitud = 7;               // Amplitud oscilación.
+frecuencia = 1/30;          // Frecuencia oscilación.
+
+linea = noone;              // Línea de mano.
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// LISTO.
+
+pescando = false;
 </string>
           </argument>
         </arguments>
@@ -66,7 +99,6 @@ script_execute(estado);
  * 
  * barco_esperando;
  * barco_navegando;
- * barco_lanzando;
  * barco_pescando;
  * barco_recogiendo;
 */
@@ -101,16 +133,8 @@ if (!activado) {exit}
 if (mouse_y &lt; MAREA) {exit}
 
 activado = false;
-switch (estado)
-    {
-    case barco_navegando:
-    case barco_esperando:
-        {
-        xstart = mouse_x;
-        estado = barco_navegando;
-        break;
-        }
-    }
+xstart = mouse_x;
+estado = barco_navegando;
 </string>
           </argument>
         </arguments>
@@ -150,16 +174,8 @@ if (mouse_y &lt; MAREA) {exit}
 
 // Enviar a algún lado.
 activado = false;
-switch (estado)
-    {
-    case barco_navegando:
-    case barco_esperando:
-        {
-        xstart = mouse_x;
-        estado = barco_navegando;
-        break;
-        }
-    }
+xstart = mouse_x;
+estado = barco_navegando;
 </string>
           </argument>
         </arguments>
@@ -182,12 +198,12 @@ switch (estado)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// DIBUJARSE.
+            <string>/// DIBUJAR BARCO Y PESCADOR.
 
+// Posicionar.
 y = MAREA;
-
-angulo += 1/30;
-image_angle = 0+7*sin(angulo);
+angulo += frecuencia;
+image_angle = 0+amplitud*sin(angulo);
 
 // Activado.
 if (activado)
@@ -198,9 +214,17 @@ if (activado)
 // Pescador.
 image_index = 2;
 draw_self();
+
 // Barco.
 image_index = 0;
 draw_self();
+
+// Granzuelo.
+if (activado)
+    {
+    var dir = point_direction(x,y,mouse_x,mouse_y);
+    draw_sprite_ext(spr_granzuelo,0,mouse_x,mouse_y,1,1,dir,-1,1);
+    }
 </string>
           </argument>
         </arguments>

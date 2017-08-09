@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_jerguilla</parentName>
+  <parentName>obj_pez</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -29,13 +29,16 @@
 
 especie = CONGRIO;
 
+estado = pez_nadando;
+
 maxspeed = 4;
 vspeed = choose(-1,0,+1);
 hspeed = 2*choose(-1,+1);
 lado = sign(hspeed);
-alarm[4] = rand(2,5);
+alarm[4] = rand(3,6);
+image_speed = 0;
 
-place_mar();
+ubicar_en_mar();
 org_caracteristicas();
 org_nacer();
 </string>
@@ -63,40 +66,6 @@ org_nacer();
             <string>/// CERRAR LA BOCA.
 
 image_index = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// HAMBRE.
-
-org_consumir_energia();
-
-if (instance_exists(presa)) {exit}
-
-repeat (instance_number(obj_jerguilla))
-    {
-    presa = org_detectar_presa(500,obj_jerguilla);
-    if (presa == noone) {break}
-    if (presa.edad == JOVEN) {break}
-    }
 </string>
           </argument>
         </arguments>
@@ -130,22 +99,6 @@ if (other.edad == JOVEN)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_huiro">
-      <action>
-        <libid>1</libid>
-        <id>425</id>
-        <kind>4</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -165,28 +118,40 @@ if (other.edad == JOVEN)
             <kind>1</kind>
             <string>/// DIBUJAR.
 
-image_xscale = lado;
-
-if (cadaver)
+if (hspeed != 0)
     {
-    image_angle = 180;
+    image_xscale = sign(hspeed);
     }
 
-if (alarm[5] &gt; 0)
+switch (estado)
     {
-    draw_sprite_ext(spr_cadaver,0,x,y,image_xscale,image_yscale,0,-1,1);
-    draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,0,-1,alarm[5]/FPS);
+    case pez_muriendo:
+        {
+        image_yscale = -1;
+        draw_self();
+        break;
+        }
+    case pez_cadaver:
+        {
+        draw_sprite_ext(spr_cadaver,0,x,y,image_xscale,image_yscale,0,-1,1);
+        draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,0,-1,alarm[5]/FPS);
+        break;
+        }
+    case pez_pescado:
+    case pez_recogiendo:
+        {
+        image_angle = direction;
+        image_xscale = +1;
+        image_yscale = 1-2*(direction &lt; 270);
+        draw_self();
+        break;
+        }
+    default:
+        {
+        draw_self();
+        break;
+        }
     }
-
-else
-    {
-    draw_self();
-    }
-    
-draw_set_colour(c_black)
-draw_set_font(font_info);
-draw_text(x,y-20,parze(energia_actual));
-
 </string>
           </argument>
         </arguments>
