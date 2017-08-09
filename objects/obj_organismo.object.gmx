@@ -77,7 +77,7 @@ org_reproducirse();
             <kind>1</kind>
             <string>/// CONSUMIR ENERGÍA.
 
-org_consumir_energia();
+org_consumo();
 </string>
           </argument>
         </arguments>
@@ -102,7 +102,7 @@ org_consumir_energia();
             <kind>1</kind>
             <string>/// MORIR DE VIEJO.
 
-org_morir_viejo();
+org_morir();
 </string>
           </argument>
         </arguments>
@@ -127,7 +127,7 @@ org_morir_viejo();
             <kind>1</kind>
             <string>/// CONVERTIRSE EN ADULTO.
 
-org_hacerse_adulto();
+org_crecer();
 </string>
           </argument>
         </arguments>

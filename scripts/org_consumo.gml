@@ -14,7 +14,7 @@ if (energia_consumo < 0)
 // Si no tiene energía, muere.
 if (energia_actual <= 0)
     {
-    org_morir_hambre();
+    org_morir();
     }
 else
     {

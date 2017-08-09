@@ -12,5 +12,5 @@ if (instance_exists(anzuelo))
 // Por siaca.
 else
     {
-    org_morir_hambre();
+    org_morir();
     }

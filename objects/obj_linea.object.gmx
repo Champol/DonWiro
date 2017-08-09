@@ -133,7 +133,9 @@ x = xstart;
             <string>/// RECOGER.
 
 if (!activado) {exit}
+
 activado = false;
+
 if (mouse_y &gt; ymouse-20) {exit}
 
 if (estado == linea_esperando)
@@ -164,10 +166,7 @@ if (estado == linea_esperando)
             <kind>1</kind>
             <string>/// ACTIVAR.
 
-// Fuera de rango.
-if (mouse_y &lt; MAREA)    {exit}
-if (mouse_x &gt; x+100)    {exit}
-if (mouse_x &lt; x-100)    {exit}
+if (CLICK != id) {exit}
 
 // Activar.
 activado = true;

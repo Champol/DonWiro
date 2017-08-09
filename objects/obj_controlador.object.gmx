@@ -25,9 +25,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// ÚNICO.
+            <string>/// VARIABLES GLOBALES.
 
 unico();
+
+globalvar CLICK,BARCO,BUZO,MAREA,
+DINERO,PUNTOS,ETAPA,STAT,JUGANDO,
+MIS_TIEMPO,MIS_DINERO,MIS_CAPTURAS;
+
+CLICK = noone;
+BARCO = true;
+BUZO = true;
+
+DINERO = 0;
+PUNTOS = 0;
+ETAPA = 0;
+JUGANDO = false;
+
+MAREA = 210;
+
+randomize();
 </string>
           </argument>
         </arguments>
@@ -48,18 +65,9 @@ unico();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// VARIABLES GLOBALES.
+            <string>/// ESPECIES.
 
-globalvar DINERO,PUNTOS,ETAPA,STAT,JUGANDO,
-MIS_TIEMPO,MIS_DINERO,MIS_CAPTURAS,
-ESPECIE,CAPTURAS,PUNTAJE,PRECIO,LIMITE;
-
-DINERO = 0;
-PUNTOS = 0;
-ETAPA = 0;
-JUGANDO = false;
-
-randomize();
+globalvar ESPECIE,CAPTURAS,PUNTAJE,PRECIO,LIMITE;
 
 LIMITE[HUIRO] = 50;
 LIMITE[CARACOL] = 100;
@@ -87,11 +95,13 @@ LIMITE[JAIBA] = 50;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// TEST!!!
+            <string>/// TEST!
 
+level_reset();
 ini_open(working_directory+"X.ini");
 load_stats("etapa0");
 ini_close();
+
 </string>
           </argument>
         </arguments>
@@ -139,12 +149,9 @@ room_goto(room_oceano);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if (room == room_tienda)
-    {
-    room_goto(room_inicio);
-    }
-    
+            <string>/// CLICK.
+
+CLICK = true;
 </string>
           </argument>
         </arguments>
@@ -203,14 +210,14 @@ if (room == room_tienda)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// SPAWN
+            <string>/// SPAWN.
 
-repeat (20) {org_crear(obj_huiro,0)}
-repeat (40) {org_crear(obj_caracol,0)}
-repeat (12) {org_crear(obj_loco,0)}
-repeat (15) {org_crear(obj_jerguilla,0)}
-repeat (05) {org_crear(obj_congrio,0)}
-repeat (00) {org_crear(obj_jaiba,0)}
+repeat (20) {org_crear(obj_huiro,1)}
+repeat (40) {org_crear(obj_caracol,1)}
+repeat (12) {org_crear(obj_loco,1)}
+repeat (15) {org_crear(obj_jerguilla,1)}
+repeat (05) {org_crear(obj_congrio,1)}
+repeat (00) {org_crear(obj_jaiba,1)}
 </string>
           </argument>
         </arguments>

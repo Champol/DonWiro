@@ -2,7 +2,7 @@
 
 tiempo_joven = STAT[especie,JOVEN];         // Tiempo hasta que son adultos.
 tiempo_adulto = STAT[especie,ADULTO];       // Tiempo hasta que muere de viejo.
-tiempo_gestacion = STAT[especie,GEST];      // Tiempo que tarda en tener crías.
+tiempo_gest = STAT[especie,GEST];           // Tiempo que tarda en tener crías.
 numero_crias = STAT[especie,CRIAS];         // Número de crías por camada
 
 energia_actual = STAT[especie,HAMBRE]*rand(0.8,1.2);       // Energía que le queda (0: morir).

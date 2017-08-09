@@ -5,8 +5,8 @@ if (instance_exists(presa))
     {
     // Dirigirse.
     dir = point_direction(x,y,presa.x,presa.y);
-    motion_add(dir,accel);
     speed -= friccion;
+    motion_add(dir,accel);
     speed = clamp(speed,0,maxspeed);
     // Atrapar.
     if (place_meeting(x,y,presa))

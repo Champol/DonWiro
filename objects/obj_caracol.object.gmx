@@ -68,7 +68,7 @@ else
     presa = noone;
     }
 
-org_consumir_energia();
+org_consumo();
 </string>
           </argument>
         </arguments>

@@ -164,11 +164,34 @@ if (instance_number(obj_pez) == 0 and ESPECIE[CONGRIO]){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// IR A PESCAR.
+            <string>/// DEFINIR CLICK.
 
-if (instance_number(obj_mensaje) &gt; 0)
+CLICK = noone;
+
+// Botones.
+obj = instance_position(mouse_x,mouse_y,obj_boton);
+if (instance_exists(obj))
+    {CLICK = obj.id; exit}
+
+// Buzo.
+obj = obj_buzo;
+if (instance_exists(obj))
     {
-    exit;
+    if (point_in_rectangle(mouse_x,mouse_y,obj.x-100,obj.y-60,obj.x+100,obj.y+60))
+        {CLICK = obj.menu; exit}
+    }
+
+// Barco.
+obj = instance_position(mouse_x,mouse_y,obj_barco);
+if (instance_exists(obj))
+    {CLICK = obj.id; exit}
+
+// Línea.
+obj = obj_linea;
+if (instance_exists(obj))
+    {
+    if (point_in_rectangle(mouse_x,mouse_y,obj.x-100,MAREA,obj.x+100,H))
+        {CLICK = obj.id; exit}
     }
 </string>
           </argument>

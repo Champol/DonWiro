@@ -56,9 +56,9 @@ org_nacer();
             <kind>1</kind>
             <string>/// HAMBRE.
 
-org_consumir_energia();
+org_consumo();
 
-presa = org_detectar_presa(50,obj_caracol);
+presa = org_detectar(50,obj_caracol);
 </string>
           </argument>
         </arguments>

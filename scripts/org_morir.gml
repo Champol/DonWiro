@@ -1,4 +1,4 @@
-/// MORIR DE VIEJO.
+/// MORIR DE HAMBRE O DE VIEJO.
 
 if (!vivo) {exit}
 

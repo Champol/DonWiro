@@ -126,6 +126,8 @@ script_execute(estado);
             <kind>1</kind>
             <string>/// ELEGIR DÓNDE PESCAR.
 
+if (!BARCO) {exit}
+
 // No estaba seleccionado.
 if (!activado) {exit}
 
@@ -159,23 +161,27 @@ estado = barco_navegando;
             <kind>1</kind>
             <string>/// DIRIGIR A UN LUGAR.
 
+if (!BARCO) {exit}
+
 // Seleccionar o desseleccionar.
-if (position_meeting(mouse_x,mouse_y,self))
+if (CLICK == id)
     {
     activado = !activado;
     exit;
     }
 
-// Desactivado.
-if (!activado) {exit}
-
-// No le dijo nada.
-if (mouse_y &lt; MAREA) {exit}
-
-// Enviar a algún lado.
-activado = false;
-xstart = mouse_x;
-estado = barco_navegando;
+// Dirigir.
+if (CLICK == noone)
+    {
+    // No le atañe.
+    if (!activado) {exit}
+    if (mouse_y &lt; MAREA) {exit}
+    
+    // Enviar a algún lado.
+    activado = false;
+    xstart = mouse_x;
+    estado = barco_navegando;
+    }
 </string>
           </argument>
         </arguments>

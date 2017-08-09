@@ -27,20 +27,18 @@
             <kind>1</kind>
             <string>/// INICIALIZAR.
 
-level_reset();              // PENDIENTE sacar de aquí.
-
 // Estado.
 estado = buzo_esperando;    // Comportamiento.
 extraer = noone;            // Qué se le pidió.
 presa = noone;              // Qué está siguiendo.
-activado = false;           // Está seleccionado.
+menu = false;               // Menú abierto.
 
 // Atributos.
 maxspeed = 3;               // Rapidez máxima.
 accel = 0.05;               // Cambio de rapidez.
 dir = 0;                    // Dirección.
-cupo_total = 100;           // Espacio en chinguillo.
-cupo_queda = 100;           // Espacio restante.
+cupo_total = 50;            // Espacio en chinguillo.
+cupo_queda = 50;            // Espacio restante.
 radio_vision = 40;          // Radio de detección.
 friccion = accel/2;         // Fricción.
 
@@ -57,6 +55,30 @@ zoom = 0.7;
 dojos = +63;
 dhombro = +25;
 dpelvis = -35;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// BOTÓN MENÚ BUZO.
+
+menu = instance_create(W-60,H-60,obj_boton_buzo);
+menu.buzo = self;
 </string>
           </argument>
         </arguments>
@@ -177,7 +199,7 @@ ypelvis = y-dpelvis*zoom*sin(degtorad(image_angle));
 
 ang += speed/30;
 
-if (activado) {buzo_dibujar(spr_buzo_ilum)}
+if (menu.activado) {buzo_dibujar(spr_buzo_ilum)}
 buzo_dibujar(spr_buzo);
 </string>
           </argument>
@@ -214,31 +236,13 @@ draw_set_color(c_blue);
 var hor = x+dojos*cos(degtorad(direction));
 var ver = y-dojos*sin(degtorad(direction));
 draw_circle(hor,ver,radio_vision,1);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="66">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// MOSTRAR BOTONES.
 
-buzo_botones();
+draw_set_color(c_orange);
+draw_rectangle(x-100,y-60,x+100,y+60,1);
+
+draw_text(600,30,cupo_queda);
+draw_text(630,30,"/");
+draw_text(660,30,cupo_total);
 </string>
           </argument>
         </arguments>

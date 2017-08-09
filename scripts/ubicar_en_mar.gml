@@ -1,7 +1,7 @@
 /// PONER EN EL MAR.
 
-while ((y < 150) or (y > 700))
-    {
-    x = random(room_width);
-    y = random(room_height);
+do  {
+    x = random(W);
+    y = random(H);
     }
+until ((y > MAREA+20) and (y < H-20))

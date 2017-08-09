@@ -1,5 +1,7 @@
 /// CARGA UNA ETAPA SEGÚN PARÁMETROS.
 
+// level_load(etapa);
+
 var texto,etapa;
 
 etapa = argument0;      // Número de la etapa.
@@ -45,10 +47,6 @@ if(etapa >= 5){
                }
      */ 
 }
-if (ini_read_real(etapa,"penalizar_crias",0))
-    {
-    precios_penalizar();
-    }
 texto = ini_read_string(etapa,"msj_intro","");
 
 if (ini_read_real(etapa,"seed",0) > 0)

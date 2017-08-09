@@ -70,7 +70,7 @@
     <sprites name="Don Wiro">
       <sprite>sprites\spr_don_wiro</sprite>
     </sprites>
-    <sprites name="Interface">
+    <sprites name="Interfaz">
       <sprite>sprites\spr_boton_inicio</sprite>
       <sprite>sprites\spr_puntaje</sprite>
       <sprite>sprites\spr_marco</sprite>
@@ -88,6 +88,8 @@
       <sprite>sprites\spr_redtrofica</sprite>
     </sprites>
     <sprites name="Controles">
+      <sprite>sprites\spr_boton_buzo</sprite>
+      <sprite>sprites\spr_boton_cancelar</sprite>
       <sprite>sprites\spr_boton_huiro</sprite>
       <sprite>sprites\spr_boton_jaiba</sprite>
       <sprite>sprites\spr_boton_loco</sprite>
@@ -120,14 +122,39 @@
       <script>scripts\org_nacer.gml</script>
       <script>scripts\org_caracteristicas.gml</script>
       <script>scripts\org_especie.gml</script>
-      <script>scripts\org_hacerse_adulto.gml</script>
-      <script>scripts\org_consumir_energia.gml</script>
+      <script>scripts\org_crecer.gml</script>
+      <script>scripts\org_consumo.gml</script>
       <script>scripts\org_alimentarse.gml</script>
       <script>scripts\org_reproducirse.gml</script>
-      <script>scripts\org_morir_hambre.gml</script>
-      <script>scripts\org_morir_viejo.gml</script>
-      <script>scripts\org_detectar_presa.gml</script>
-      <script>scripts\org_asignar_sprite.gml</script>
+      <script>scripts\org_morir.gml</script>
+      <script>scripts\org_detectar.gml</script>
+      <script>scripts\org_sprite.gml</script>
+      <script>scripts\org_tamano.gml</script>
+      <script>scripts\org_momento.gml</script>
+    </scripts>
+    <scripts name="Buzo">
+      <script>scripts\buzo_esperando.gml</script>
+      <script>scripts\buzo_buscando.gml</script>
+      <script>scripts\buzo_siguiendo.gml</script>
+      <script>scripts\buzo_retornando.gml</script>
+      <script>scripts\buzo_dibujar.gml</script>
+      <script>scripts\buzo_atrapar.gml</script>
+      <script>scripts\buzo_buscar.gml</script>
+      <scripts name="Manguera">
+        <script>scripts\manguera_crear.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="Barco">
+      <script>scripts\barco_lanzar.gml</script>
+      <script>scripts\barco_esperando.gml</script>
+      <script>scripts\barco_navegando.gml</script>
+      <scripts name="Línea">
+        <script>scripts\linea_bajando.gml</script>
+        <script>scripts\linea_recogiendo.gml</script>
+        <script>scripts\linea_esperando.gml</script>
+        <script>scripts\linea_recoger.gml</script>
+        <script>scripts\linea_recolectar.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Etapas">
       <script>scripts\level_load.gml</script>
@@ -145,32 +172,8 @@
       <script>scripts\rand.gml</script>
       <script>scripts\ubicar_en_mar.gml</script>
       <script>scripts\ubicar_en_rocas.gml</script>
-    </scripts>
-    <script>scripts\mensaje_crear.gml</script>
-    <script>scripts\precios_penalizar.gml</script>
-    <script>scripts\precios_defecto.gml</script>
-    <scripts name="Barco">
-      <script>scripts\barco_lanzar.gml</script>
-      <script>scripts\barco_esperando.gml</script>
-      <script>scripts\barco_navegando.gml</script>
-      <scripts name="Línea">
-        <script>scripts\linea_bajando.gml</script>
-        <script>scripts\linea_recogiendo.gml</script>
-        <script>scripts\linea_esperando.gml</script>
-        <script>scripts\linea_recoger.gml</script>
-        <script>scripts\linea_recolectar.gml</script>
-      </scripts>
-    </scripts>
-    <scripts name="Buzo">
-      <script>scripts\buzo_esperando.gml</script>
-      <script>scripts\buzo_buscando.gml</script>
-      <script>scripts\buzo_siguiendo.gml</script>
-      <script>scripts\buzo_retornando.gml</script>
-      <script>scripts\buzo_dibujar.gml</script>
-      <script>scripts\buzo_atrapar.gml</script>
-      <script>scripts\buzo_buscar.gml</script>
-      <script>scripts\buzo_botones.gml</script>
-      <script>scripts\manguera_crear.gml</script>
+      <script>scripts\mensaje_crear.gml</script>
+      <script>scripts\precios_defecto.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -186,7 +189,6 @@
       <object>objects\obj_controlador</object>
       <object>objects\obj_pantalla</object>
       <object>objects\obj_etapas</object>
-      <object>objects\obj_agua</object>
     </objects>
     <objects name="Organismos">
       <object>objects\obj_organismo</object>
@@ -212,12 +214,12 @@
       <object>objects\obj_boton_mercado</object>
       <object>objects\obj_boton_salir</object>
       <object>objects\obj_boton_menu</object>
-      <object>objects\obj_boton_buzo</object>
       <object>objects\obj_boton_aceptar</object>
       <object>objects\obj_intro</object>
+      <object>objects\obj_boton_buzo</object>
+      <object>objects\obj_boton_extraer</object>
     </objects>
     <objects name="Otros">
-      <object>objects\obj_suelo</object>
       <object>objects\obj_intermareal</object>
       <object>objects\obj_mensaje</object>
     </objects>

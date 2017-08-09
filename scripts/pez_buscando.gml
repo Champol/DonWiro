@@ -6,13 +6,13 @@ var i,comer;
 if (!instance_exists(presa))
     {
     if ((especie == JERGUILLA))
-        {presa = org_detectar_presa(200,obj_caracol)}
+        {presa = org_detectar(200,obj_caracol)}
     if ((especie == CONGRIO) and (edad == JOVEN))
-        {presa = org_detectar_presa(300,obj_caracol)}
+        {presa = org_detectar(300,obj_caracol)}
     if ((especie == CONGRIO) and (edad == ADULTO))
         {
-        presa = org_detectar_presa(500,obj_jerguilla);
-        if (!instance_exists(presa))
+        presa = org_detectar(500,obj_jerguilla);
+        if (instance_exists(presa))
             {
             if (presa.edad == ADULTO)
                 {presa = noone}
