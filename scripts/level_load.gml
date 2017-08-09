@@ -29,6 +29,22 @@ ESPECIE[HUIRO] = ini_read_real(etapa,"algas",0);
 ESPECIE[CONGRIO] = ini_read_real(etapa,"congrios",0);
 ESPECIE[JERGUILLA] = ini_read_real(etapa,"jerguillas",0);
 ESPECIE[CARACOL] = ini_read_real(etapa,"caracoles",0);
+ESPECIE[JAIBA] = ini_read_real(etapa,"jaibas",0);       // no se si esta bien declarado esto
+
+if (etapa >= 4){
+     // activar alarma de chungungo
+}
+
+if(etapa >= 5){
+     //mostrar mensaje que comenzar a actuar el sernapesca y al final de la etapa llamar al metodo fiscalizar 
+     /* en el metodo fiscalizar va   
+     if (CAPTURAS[i,JOVEN] > 0){
+               puntaje de la etapa = 0
+               dinero de la etapa = 0
+               dinero total = dinero total - multa 
+               }
+     */ 
+}
 if (ini_read_real(etapa,"penalizar_crias",0))
     {
     precios_penalizar();
