@@ -60,7 +60,7 @@ with (mensaje)
         {
         case 1:
             {
-            level_start();
+            etapa_comenzar();
             break;
             }
         case 2: 

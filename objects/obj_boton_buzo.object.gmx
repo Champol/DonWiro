@@ -31,6 +31,7 @@
 buzo = noone;           // Buzo.
 activado = false;       // Mostrar.
 botones = 4;            // Botones.
+image_speed = 1/6;      // Animación.
 
 // Botones.
 boton[0] = instance_create(x,y-480,obj_boton_extraer);
@@ -133,8 +134,12 @@ alarm[0] = -1;
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
-image_index = activado;
-draw_self();
+if ((buzo.estado == buzo_esperando) and !activado)
+    {
+    draw_sprite(spr_boton_ilum,image_index,x,y);
+    }
+
+draw_sprite(spr_boton_buzo,activado,x,y);
 </string>
           </argument>
         </arguments>

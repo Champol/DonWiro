@@ -52,7 +52,7 @@ unico();
             <kind>1</kind>
             <string>/// GANAR POR SOBREVIVENCIA.
 
-game_win();
+etapa_ganar();
 </string>
           </argument>
         </arguments>
@@ -95,7 +95,7 @@ var i;
 
 if ((MIS_DINERO &gt; 0) and (DINERO &gt;= MIS_DINERO))
     {
-    game_win();
+    etapa_ganar();
     exit;
     }
     
@@ -103,7 +103,7 @@ for (i=0; i&lt;=4; i++)
     {
     if ((MIS_CAPTURAS[i] &gt; 0) and (CAPTURAS[i,JOVEN]+CAPTURAS[i,ADULTO] &gt;= MIS_CAPTURAS[i]))
         {
-        game_win();
+        etapa_ganar();
         exit;
         }
     }
@@ -131,17 +131,11 @@ for (i=0; i&lt;=4; i++)
 
 if (instance_number(obj_mensaje) &gt; 0) {exit} 
 
-if (instance_number(obj_pez) == 0 and ESPECIE[CONGRIO]){
-    game_over()
-      }else if (instance_number(obj_jerguilla) == 0 and ESPECIE[JERGUILLA]){
-         game_over()
-            }else if (instance_number(obj_loco) == 0 and ESPECIE[LOCO]){
-               game_over()
-                 }else if (instance_number(obj_alga) == 0 and ESPECIE[ALGA]){
-                    game_over()  
-                       }else if (instance_number(obj_caracol) == 0 and ESPECIE[CARACOL]){
-                          game_over()
-                          }
+if (instance_number(obj_congrio) == 0 and ESPECIE[CONGRIO])     {etapa_perder()}
+if (instance_number(obj_jerguilla) == 0 and ESPECIE[JERGUILLA]) {etapa_perder()}
+if (instance_number(obj_loco) == 0 and ESPECIE[LOCO])           {etapa_perder()}
+if (instance_number(obj_huiro) == 0 and ESPECIE[ALGA])          {etapa_perder()}
+if (instance_number(obj_caracol) == 0 and ESPECIE[CARACOL])     {etapa_perder()}
 </string>
           </argument>
         </arguments>
@@ -233,7 +227,7 @@ if (instance_exists(obj))
 
 sdm("Cargar etapa: "+string(ETAPA));
 
-var texto = level_load(ETAPA);
+var texto = etapa_cargar(ETAPA);
 
 if (ETAPA == 1)
     {
@@ -316,7 +310,9 @@ if (MIS_TIEMPO)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_win()
+            <string>/// GANAR.
+
+etapa_ganar();
 </string>
           </argument>
         </arguments>
@@ -339,7 +335,9 @@ if (MIS_TIEMPO)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_over()
+            <string>/// PERDER.
+
+etapa_perder();
 </string>
           </argument>
         </arguments>

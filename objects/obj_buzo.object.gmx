@@ -44,8 +44,8 @@ friccion = accel/2;         // Fricción.
 
 // Animación.
 borde = 40;
-xstart = x+choose(-200,+200);
-ystart = y+choose(-20,+20);
+xstart = W/2;
+ystart = MAREA+100;
 image_speed = 0.1;
 audio_play_sound(snd_buceo,0.5,1);
 ang = 0.0;

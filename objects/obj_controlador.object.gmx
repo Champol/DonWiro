@@ -69,12 +69,12 @@ randomize();
 
 globalvar ESPECIE,CAPTURAS,PUNTAJE,PRECIO,LIMITE;
 
-LIMITE[HUIRO] = 50;
-LIMITE[CARACOL] = 100;
-LIMITE[LOCO] = 50;
-LIMITE[JERGUILLA] = 50;
-LIMITE[CONGRIO] = 25;
-LIMITE[JAIBA] = 50;
+LIMITE[HUIRO] = 30;
+LIMITE[CARACOL] = 50;
+LIMITE[LOCO] = 30;
+LIMITE[JERGUILLA] = 30;
+LIMITE[CONGRIO] = 20;
+LIMITE[JAIBA] = 30;
 </string>
           </argument>
         </arguments>
@@ -97,9 +97,9 @@ LIMITE[JAIBA] = 50;
             <kind>1</kind>
             <string>/// TEST!
 
-level_reset();
+etapa_reiniciar();
 ini_open(working_directory+"X.ini");
-load_stats("etapa0");
+etapa_stats("etapa0");
 ini_close();
 
 </string>
@@ -212,12 +212,12 @@ if (room == room_tienda)
             <kind>1</kind>
             <string>/// SPAWN.
 
-repeat (20) {org_crear(obj_huiro,1)}
-repeat (40) {org_crear(obj_caracol,1)}
-repeat (12) {org_crear(obj_loco,1)}
-repeat (15) {org_crear(obj_jerguilla,1)}
-repeat (05) {org_crear(obj_congrio,1)}
-repeat (00) {org_crear(obj_jaiba,1)}
+repeat (10) {org_crear(obj_huiro,1)}
+repeat (20) {org_crear(obj_caracol,1)}
+repeat (05) {org_crear(obj_loco,1)}
+repeat (08) {org_crear(obj_jerguilla,1)}
+repeat (04) {org_crear(obj_congrio,1)}
+repeat (10) {org_crear(obj_jaiba,1)}
 </string>
           </argument>
         </arguments>

@@ -93,23 +93,8 @@ else
 if (!BUZO) {exit}
 if (CLICK != id) {exit}
 
-if (menu.buzo.estado == buzo_retornando)
-    {exit}
-
-// Asignar presa.
-menu.buzo.extraer = self.extraer;
-
-// Ponerse a buscar.
-if (menu.buzo.estado == buzo_esperando)
-    {
-    with (menu.buzo) {buzo_buscar()}
-    }
-
-// Esperar órdenes.
-if (extraer == noone)
-    {
-    menu.buzo.estado = buzo_esperando;
-    }
+with (menu.buzo)
+    {buzo_extraer(other.extraer)}
 </string>
           </argument>
         </arguments>

@@ -88,6 +88,7 @@
       <sprite>sprites\spr_redtrofica</sprite>
     </sprites>
     <sprites name="Controles">
+      <sprite>sprites\spr_boton_ilum</sprite>
       <sprite>sprites\spr_boton_buzo</sprite>
       <sprite>sprites\spr_boton_cancelar</sprite>
       <sprite>sprites\spr_boton_huiro</sprite>
@@ -106,18 +107,18 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="Peces">
+      <script>scripts\pez_nadando.gml</script>
+      <script>scripts\pez_buscando.gml</script>
+      <script>scripts\pez_cazando.gml</script>
+      <script>scripts\pez_muriendo.gml</script>
+      <script>scripts\pez_cadaver.gml</script>
+      <script>scripts\pez_pescado.gml</script>
+      <script>scripts\pez_recoger.gml</script>
+      <script>scripts\pez_recogiendo.gml</script>
+      <script>scripts\pez_limites.gml</script>
+    </scripts>
     <scripts name="Organismos">
-      <scripts name="Peces">
-        <script>scripts\pez_nadando.gml</script>
-        <script>scripts\pez_buscando.gml</script>
-        <script>scripts\pez_cazando.gml</script>
-        <script>scripts\pez_muriendo.gml</script>
-        <script>scripts\pez_cadaver.gml</script>
-        <script>scripts\pez_pescado.gml</script>
-        <script>scripts\pez_recoger.gml</script>
-        <script>scripts\pez_recogiendo.gml</script>
-        <script>scripts\pez_limites.gml</script>
-      </scripts>
       <script>scripts\org_crear.gml</script>
       <script>scripts\org_nacer.gml</script>
       <script>scripts\org_caracteristicas.gml</script>
@@ -137,9 +138,11 @@
       <script>scripts\buzo_buscando.gml</script>
       <script>scripts\buzo_siguiendo.gml</script>
       <script>scripts\buzo_retornando.gml</script>
-      <script>scripts\buzo_dibujar.gml</script>
-      <script>scripts\buzo_atrapar.gml</script>
+      <script>scripts\buzo_esperar.gml</script>
       <script>scripts\buzo_buscar.gml</script>
+      <script>scripts\buzo_extraer.gml</script>
+      <script>scripts\buzo_atrapar.gml</script>
+      <script>scripts\buzo_dibujar.gml</script>
       <scripts name="Manguera">
         <script>scripts\manguera_crear.gml</script>
       </scripts>
@@ -157,12 +160,12 @@
       </scripts>
     </scripts>
     <scripts name="Etapas">
-      <script>scripts\level_load.gml</script>
-      <script>scripts\load_stats.gml</script>
-      <script>scripts\level_start.gml</script>
-      <script>scripts\level_reset.gml</script>
-      <script>scripts\game_win.gml</script>
-      <script>scripts\game_over.gml</script>
+      <script>scripts\etapa_cargar.gml</script>
+      <script>scripts\etapa_stats.gml</script>
+      <script>scripts\etapa_comenzar.gml</script>
+      <script>scripts\etapa_reiniciar.gml</script>
+      <script>scripts\etapa_ganar.gml</script>
+      <script>scripts\etapa_perder.gml</script>
     </scripts>
     <scripts name="Auxiliares">
       <script>scripts\num.gml</script>

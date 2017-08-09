@@ -8,7 +8,7 @@ etapa = argument0;      // Número de la etapa.
 
 etapa = "etapa"+string(etapa);
 
-level_reset();
+etapa_reiniciar();
 
 // Lee etapa.
 ini_open("Etapas.ini");
@@ -53,7 +53,7 @@ if (ini_read_real(etapa,"seed",0) > 0)
     {
     random_set_seed(ini_read_real(etapa,"seed",0));
     }
-load_stats(etapa);
+etapa_stats(etapa);
 ini_close();
 
 return texto;

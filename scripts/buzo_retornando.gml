@@ -12,7 +12,7 @@ if (place_meeting(x,y,obj_barco))
     {
     audio_play_sound(snd_moneda,0.5,0);
     cupo_queda = cupo_total;
-    estado = buzo_esperando;
     extraer = noone;
     menu.activado = true;
+    buzo_esperar();
     }

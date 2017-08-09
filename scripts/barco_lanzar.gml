@@ -1,5 +1,6 @@
 /// LANZAR LÍNEA DE MANO AL MAR.
 
+if (pescando) {exit}
 pescando = true;
 
 // Lanzar línea.

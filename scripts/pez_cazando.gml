@@ -13,7 +13,7 @@ if (instance_exists(presa))
         if (!presa.pescando)
             {
             presa = noone;
-            estado = pez_buscando;
+            estado = pez_nadando;
             }
         }
     }
@@ -23,3 +23,5 @@ else
     presa = noone;
     estado = pez_buscando;
     }
+
+pez_limites();

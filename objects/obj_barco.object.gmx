@@ -137,6 +137,7 @@ if (mouse_y &lt; MAREA) {exit}
 activado = false;
 xstart = mouse_x;
 estado = barco_navegando;
+barco_lanzar();
 </string>
           </argument>
         </arguments>
@@ -181,6 +182,7 @@ if (CLICK == noone)
     activado = false;
     xstart = mouse_x;
     estado = barco_navegando;
+    barco_lanzar();
     }
 </string>
           </argument>

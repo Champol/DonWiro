@@ -34,7 +34,6 @@ estado = pez_nadando;
 maxspeed = 4;
 vspeed = choose(-1,0,+1);
 hspeed = 2*choose(-1,+1);
-lado = sign(hspeed);
 alarm[4] = rand(3,6);
 image_speed = 0;
 
@@ -90,10 +89,37 @@ image_index = 0;
             <kind>1</kind>
             <string>/// COMER.
 
-if (other.edad == JOVEN)
-    {
-    org_alimentarse();
-    }
+if (edad != ADULTO) {exit}
+if (other.edad != JOVEN) {exit}
+
+org_alimentarse();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_caracol">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// COMER.
+
+if (edad != JOVEN) {exit}
+
+org_alimentarse();
 </string>
           </argument>
         </arguments>
@@ -142,7 +168,7 @@ switch (estado)
         {
         image_angle = direction;
         image_xscale = +1;
-        image_yscale = 1-2*(direction &lt; 270);
+        image_yscale = 1-2*(direction &gt; 270);
         draw_self();
         break;
         }

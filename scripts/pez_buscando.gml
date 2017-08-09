@@ -2,21 +2,31 @@
 
 var i,comer;
 
+if (energia_actual > energia_hambre)
+    {
+    estado = pez_nadando;
+    presa = noone;
+    exit;
+    }
+
 // Buscar una presa.
 if (!instance_exists(presa))
     {
-    if ((especie == JERGUILLA))
-        {presa = org_detectar(200,obj_caracol)}
-    if ((especie == CONGRIO) and (edad == JOVEN))
-        {presa = org_detectar(300,obj_caracol)}
-    if ((especie == CONGRIO) and (edad == ADULTO))
+    if (especie == JERGUILLA)
+        {presa = org_detectar(400,obj_huiro)}
+    else
         {
-        presa = org_detectar(500,obj_jerguilla);
-        if (instance_exists(presa))
+        if (edad == ADULTO)
             {
-            if (presa.edad == ADULTO)
-                {presa = noone}
+            presa = org_detectar(400,obj_jerguilla);
+            if (instance_exists(presa))
+                {
+                if (presa.edad == ADULTO)
+                    {presa = noone}
+                }
             }
+        else
+            {presa = org_detectar(400,obj_caracol)}
         }
     }
 
