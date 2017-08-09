@@ -39,7 +39,7 @@ accel = 0.05;               // Cambio de rapidez.
 dir = 0;                    // Dirección.
 cupo_total = 50;            // Espacio en chinguillo.
 cupo_queda = 50;            // Espacio restante.
-radio_vision = 40;          // Radio de detección.
+radio_vision = 150;         // Radio de detección.
 friccion = accel/2;         // Fricción.
 
 // Animación.
@@ -187,6 +187,8 @@ script_execute(estado);
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
+if (!BUZO) {exit}
+
 image_angle = direction;
 image_xscale = zoom;
 if (hspeed &lt; 0) {image_yscale = -1*zoom}
@@ -204,6 +206,20 @@ buzo_dibujar(spr_buzo);
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>425</id>
+        <kind>4</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
       <action>
         <libid>1</libid>

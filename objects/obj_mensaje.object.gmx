@@ -28,7 +28,7 @@
             <string>/// INICIALIZAR.
 
 texto = "";
-boton = instance_create(x,y+100,obj_boton_aceptar);
+boton = instance_create(x,y+160,obj_boton_aceptar);
 boton.mensaje = self;
 </string>
           </argument>

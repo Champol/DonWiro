@@ -134,6 +134,8 @@ alarm[0] = -1;
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
+if (!BUZO) {exit}
+
 if ((buzo.estado == buzo_esperando) and !activado)
     {
     draw_sprite(spr_boton_ilum,image_index,x,y);

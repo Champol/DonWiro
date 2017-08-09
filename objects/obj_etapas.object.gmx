@@ -61,20 +61,6 @@ etapa_ganar();
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>425</id>
-        <kind>4</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -93,15 +79,15 @@ etapa_ganar();
 
 var i;
 
-if ((MIS_DINERO &gt; 0) and (DINERO &gt;= MIS_DINERO))
+if ((OBJ_DINERO &gt; 0) and (DINERO &gt;= OBJ_DINERO))
     {
     etapa_ganar();
     exit;
     }
     
-for (i=0; i&lt;=4; i++)
+for (i=0; i&lt;=5; i++)
     {
-    if ((MIS_CAPTURAS[i] &gt; 0) and (CAPTURAS[i,JOVEN]+CAPTURAS[i,ADULTO] &gt;= MIS_CAPTURAS[i]))
+    if ((OBJ_CAPTURAS[i] &gt; 0) and (CAPTURAS[i,JOVEN]+CAPTURAS[i,ADULTO] &gt;= OBJ_CAPTURAS[i]))
         {
         etapa_ganar();
         exit;
@@ -134,8 +120,9 @@ if (instance_number(obj_mensaje) &gt; 0) {exit}
 if (instance_number(obj_congrio) == 0 and ESPECIE[CONGRIO])     {etapa_perder()}
 if (instance_number(obj_jerguilla) == 0 and ESPECIE[JERGUILLA]) {etapa_perder()}
 if (instance_number(obj_loco) == 0 and ESPECIE[LOCO])           {etapa_perder()}
-if (instance_number(obj_huiro) == 0 and ESPECIE[ALGA])          {etapa_perder()}
+if (instance_number(obj_huiro) == 0 and ESPECIE[HUIRO])         {etapa_perder()}
 if (instance_number(obj_caracol) == 0 and ESPECIE[CARACOL])     {etapa_perder()}
+if (instance_number(obj_jaiba) == 0 and ESPECIE[JAIBA])         {etapa_perder()}
 </string>
           </argument>
         </arguments>
@@ -213,15 +200,11 @@ if (instance_exists(obj))
 
 sdm("Cargar etapa: "+string(ETAPA));
 
-var texto = etapa_cargar(ETAPA);
+var texto = etapa_cargar();
 
-if (ETAPA == 1)
+if (texto != "")
     {
-    mensaje_crear("MISIÓN:##"+texto,6);
-    }
-else if (texto != "")
-    {
-    mensaje_crear("MISIÓN:##"+texto,1);
+    mensaje_crear(texto,1);
     }
 </string>
           </argument>
@@ -229,20 +212,6 @@ else if (texto != "")
       </action>
     </event>
     <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>425</id>
-        <kind>4</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -269,7 +238,7 @@ draw_set_valign(fa_center);
 draw_sprite(spr_puntaje,0,60,60);
 draw_text(120,60,"$"+string(DINERO));
 
-if (MIS_TIEMPO)
+if (OBJ_TIEMPO)
     {
     draw_set_halign(fa_center);
     draw_text(room_width/2,30,parze((alarm[0]/FPS) div 60)+":"+parze((alarm[0]/FPS) mod 60));
@@ -279,57 +248,21 @@ if (MIS_TIEMPO)
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="119">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// GANAR.
-
-etapa_ganar();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="118">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// PERDER.
-
-etapa_perder();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="16">
+      <action>
+        <libid>1</libid>
+        <id>425</id>
+        <kind>4</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>

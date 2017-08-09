@@ -29,13 +29,14 @@
 
 unico();
 
-globalvar CLICK,BARCO,BUZO,MAREA,
+globalvar CLICK,BARCO,BUZO,MAREA,TUTORIAL,
 DINERO,PUNTOS,ETAPA,STAT,JUGANDO,
-MIS_TIEMPO,MIS_DINERO,MIS_CAPTURAS;
+OBJ_TIEMPO,OBJ_DINERO,OBJ_CAPTURAS;
 
 CLICK = noone;
 BARCO = true;
 BUZO = true;
+TUTORIAL = "";
 
 DINERO = 0;
 PUNTOS = 0;
@@ -70,38 +71,11 @@ randomize();
 globalvar ESPECIE,CAPTURAS,PUNTAJE,PRECIO,LIMITE;
 
 LIMITE[HUIRO] = 30;
-LIMITE[CARACOL] = 50;
+LIMITE[CARACOL] = 80;
 LIMITE[LOCO] = 30;
 LIMITE[JERGUILLA] = 30;
 LIMITE[CONGRIO] = 20;
 LIMITE[JAIBA] = 30;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// TEST!
-
-etapa_reiniciar();
-ini_open(working_directory+"X.ini");
-etapa_stats("etapa0");
-ini_close();
-
 </string>
           </argument>
         </arguments>
@@ -172,6 +146,20 @@ if (room == room_inicio)
     <event eventtype="9" enumb="114">
       <action>
         <libid>1</libid>
+        <id>425</id>
+        <kind>4</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -202,6 +190,20 @@ repeat (10) {org_crear(obj_jaiba,1)}
     <event eventtype="9" enumb="113">
       <action>
         <libid>1</libid>
+        <id>425</id>
+        <kind>4</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>331</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -216,6 +218,20 @@ repeat (10) {org_crear(obj_jaiba,1)}
       </action>
     </event>
     <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>425</id>
+        <kind>4</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>332</id>

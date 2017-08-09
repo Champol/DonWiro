@@ -219,9 +219,13 @@ if (activado)
     image_index = 1;
     draw_self();
     }
-// Pescador.
-image_index = 2;
-draw_self();
+
+if (BARCO)
+    {
+    // Pescador.
+    image_index = 2;
+    draw_self();
+    }
 
 // Barco.
 image_index = 0;

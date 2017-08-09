@@ -16,17 +16,12 @@ if (!instance_exists(presa))
         {presa = org_detectar(400,obj_huiro)}
     else
         {
-        if (edad == ADULTO)
+        presa = org_detectar(400,obj_jerguilla);
+        if (instance_exists(presa))
             {
-            presa = org_detectar(400,obj_jerguilla);
-            if (instance_exists(presa))
-                {
-                if (presa.edad == ADULTO)
-                    {presa = noone}
-                }
+            if (presa.edad == ADULTO)
+                {presa = noone}
             }
-        else
-            {presa = org_detectar(400,obj_caracol)}
         }
     }
 

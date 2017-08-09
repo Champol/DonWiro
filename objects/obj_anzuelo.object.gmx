@@ -184,13 +184,14 @@ pescando = false;
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
+/*
 if (pescando)
     {
     draw_set_color(c_red);
     draw_circle(x,y,radio[CONGRIO],1);
     draw_circle(x,y,radio[JERGUILLA],1);
     }
-
+*/
 draw_set_color(COLOR_LINEA);
 draw_set_alpha(0.7);
 draw_line(xstart,ystart,x,y)

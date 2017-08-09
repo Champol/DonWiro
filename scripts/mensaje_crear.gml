@@ -1,9 +1,8 @@
 /// CREAR MENSAJE.
 
-if (instance_number(obj_mensaje) > 0)
-    {exit}
+// mensaje_crear(texto,tipo);
 
-msj = instance_create(room_width/2,room_height/2,obj_mensaje);
+msj = instance_create(W/2,H/2,obj_mensaje);
 msj.texto = argument0;
 msj.tipo = argument1;
 

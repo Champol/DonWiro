@@ -28,7 +28,9 @@
             <string>/// INICIALIZAR.
 
 event_inherited();
+
 mensaje = noone;
+tipo = 0;
 JUGANDO = false;
 </string>
           </argument>
@@ -54,44 +56,59 @@ JUGANDO = false;
             <kind>1</kind>
             <string>/// CERRAR MENSAJE Y HACER ALGO.
 
-with (mensaje)
+sdm("cerrando mensaje");
+
+switch (mensaje.tipo)
     {
-    switch (tipo)
+    case 1: // Comenzar etapa.
         {
-        case 1:
-            {
-            etapa_comenzar();
-            break;
-            }
-        case 2: 
-            {
-            room_restart();
-            break;
-            }
-        case 3: 
-            {
-            ETAPA += 1;
-            room_restart();
-            break;
-            }
-        case 4: 
-            {
-            game_restart();
-            break;
-            }
-        case 5:
-            {
-            JUGANDO = true;
-            break;
-            }
-        case 6:
-            {
-            mensaje_crear("INDICACIONES:#Indica al buzo en qué zona extraer.#Con los botones laterales indica qué especies extraer.",1);
-            break;
-            }
+        etapa_comenzar();
+        break;
         }
-    instance_destroy();
+    case 2: // Reiniciar etapas.
+        {
+        room_restart();
+        break;
+        }
+    case 3: // Menú de etapas.
+        {
+        room_goto(room_etapas);
+        break;
+        }
+    case 4: // Reiniciar el juego.
+        {
+        game_restart();
+        break;
+        }
+    case 5: // Continuar etapa.
+        {
+        JUGANDO = true;
+        break;
+        }
+    case 6: 
+        {
+        mensaje_crear("INDICACIONES:#Indica al buzo en qué zona extraer.#Con los botones laterales indica qué especies extraer.",1);
+        break;
+        }
+    case 7: // Estadísticas.
+        {
+        mensaje_crear("ESPECIES CAPTURADAS:#"+
+        "#Congrios:        "+string_format(CAPTURAS[CONGRIO,JOVEN]+CAPTURAS[CONGRIO,ADULTO],2,0)+
+        "#Jerguillas:      "+string_format(CAPTURAS[JERGUILLA,JOVEN]+CAPTURAS[JERGUILLA,ADULTO],2,0)+
+        "#Locos:           "+string_format(CAPTURAS[LOCO,JOVEN]+CAPTURAS[LOCO,ADULTO],2,0)+
+        "#Jaibas:          "+string_format(CAPTURAS[JAIBA,JOVEN]+CAPTURAS[JAIBA,ADULTO],2,0)+
+        "#Huiros:          "+string_format(CAPTURAS[HUIRO,JOVEN]+CAPTURAS[HUIRO,ADULTO],2,0)
+        ,3);
+        break;
+        }
+    default:
+        {
+        sdm("&gt;&gt; Mensaje sin tipo asignado");
+        break;
+        }
     }
+with (mensaje) {instance_destroy()}
+
 instance_destroy();
 </string>
           </argument>
@@ -117,10 +134,11 @@ instance_destroy();
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
+// Trama trófica.
 if (mensaje.tipo == 5)
     {
-    x = 772;
-    y = 530;
+    x = 892;
+    y = 635;
     }
 
 draw_self();

@@ -31,7 +31,7 @@ especie = JERGUILLA;
 
 estado = pez_nadando;
 
-maxspeed = 2.5;
+maxspeed = 2;
 vspeed = choose(-1,0,+1);
 hspeed = 2*choose(-1,+1);
 lado = sign(hspeed);

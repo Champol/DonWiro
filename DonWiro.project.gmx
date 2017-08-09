@@ -80,6 +80,7 @@
       <sprite>sprites\spr_etapa</sprite>
       <sprite>sprites\spr_boton_menu</sprite>
       <sprite>sprites\spr_boton_sgte</sprite>
+      <sprite>sprites\spr_boton_atras</sprite>
       <sprite>sprites\spr_boton_mercado</sprite>
     </sprites>
     <sprites name="Otros">
@@ -163,9 +164,9 @@
     </scripts>
     <scripts name="Etapas">
       <script>scripts\etapa_cargar.gml</script>
+      <script>scripts\etapa_reiniciar.gml</script>
       <script>scripts\etapa_stats.gml</script>
       <script>scripts\etapa_comenzar.gml</script>
-      <script>scripts\etapa_reiniciar.gml</script>
       <script>scripts\etapa_ganar.gml</script>
       <script>scripts\etapa_perder.gml</script>
     </scripts>
@@ -221,6 +222,7 @@
       <object>objects\obj_boton_etapa</object>
       <object>objects\obj_boton_mercado</object>
       <object>objects\obj_boton_salir</object>
+      <object>objects\obj_boton_atras</object>
       <object>objects\obj_boton_menu</object>
       <object>objects\obj_boton_aceptar</object>
       <object>objects\obj_boton_intro</object>

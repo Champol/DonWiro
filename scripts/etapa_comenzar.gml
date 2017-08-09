@@ -2,34 +2,39 @@
 
 var i,org;
 
+if (TUTORIAL != "")
+    {
+    mensaje_crear(TUTORIAL,1);
+    TUTORIAL = "";
+    exit;
+    }
+
 JUGANDO = true;
 
-if (MIS_TIEMPO > 0)
+if (OBJ_TIEMPO > 0)
     {
-    obj_etapas.alarm[0] = MIS_TIEMPO*FPS;
+    obj_etapas.alarm[0] = OBJ_TIEMPO*FPS;
     }
 
-for (i=1; i<=ESPECIE[CONGRIO]; i++)
-    {
-    org = instance_create(0,0,obj_pez);
-    org.sexo = i mod 2;
-    }
-repeat (ESPECIE[LOCO])      {instance_create(0,0,obj_loco)}    
-repeat (ESPECIE[JERGUILLA]) {instance_create(0,0,obj_jerguilla)}
-repeat (ESPECIE[ALGA])      {instance_create(0,0,obj_alga)}
-repeat (ESPECIE[CARACOL])   {instance_create(0,0,obj_caracol)}
+repeat (ESPECIE[LOCO])      {org_crear(obj_loco,1)}
+repeat (ESPECIE[JAIBA])     {org_crear(obj_jaiba,1)}
+repeat (ESPECIE[HUIRO])     {org_crear(obj_huiro,1)}
+repeat (ESPECIE[CARACOL])   {org_crear(obj_caracol,1)}
+repeat (ESPECIE[JERGUILLA]) {org_crear(obj_jerguilla,1)}
+repeat (ESPECIE[CONGRIO])   {org_crear(obj_congrio,1)}
 
-with (obj_alga)
+if (ETAPA >= 4)
     {
-    if (choose(0,1,1,1))
-        {
-        //alga_adulto();
-        }
+    // activar alarma de chungungo
     }
-with (obj_consumidor)
+if (ETAPA >= 5)
     {
-    if (choose(0,1,1,1))
-        {
-        //org_adulto();
-        }
+     //mostrar mensaje que comenzar a actuar el sernapesca y al final de la etapa llamar al metodo fiscalizar 
+     /* en el metodo fiscalizar va   
+     if (CAPTURAS[i,JOVEN] > 0){
+               puntaje de la etapa = 0
+               dinero de la etapa = 0
+               dinero total = dinero total - multa 
+               }
+     */ 
     }
