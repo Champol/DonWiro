@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_organismo</parentName>
+  <parentName>obj_pez</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -29,157 +29,17 @@
 
 especie = JERGUILLA;
 
+estado = pez_nadando;
+
+maxspeed = 2.5;
 vspeed = choose(-1,0,+1);
 hspeed = 2*choose(-1,+1);
 lado = sign(hspeed);
-alarm[4] = rand(2,5);
+alarm[4] = rand(3,6);
 
-place_mar();
+ubicar_en_mar();
 org_caracteristicas();
 org_nacer();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// MODIFICAR MOVIMIENTO.
-
-// Tiene hambre.
-if (instance_exists(presa))
-    {
-    hspeed = 2*sign(presa.x-x);
-    vspeed = 1*sign(presa.y-y);
-    alarm[4] = 1*FPS;
-    }
-
-// Va tranquilo.
-else
-    {
-    vspeed += rand(-0.2,+0.2);
-    alarm[4] = rand(3,6);
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// HAMBRE.
-
-org_consumir_energia();
-
-presa = org_detectar_presa(150,obj_huiro);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// COMPORTAMIENTO.
-
-// Límites.
-if (vivo)
-    {
-    if ((hspeed &lt; 0) and (x &lt; 16))
-        {hspeed = +abs(hspeed)}
-    if ((hspeed &gt; 0) and (x &gt; room_width-16))
-        {hspeed = -abs(hspeed)}
-    if ((vspeed &lt; 0) and (y &lt; MAREA+80))
-        {vspeed = abs(vspeed)}
-    if (hspeed != 0)
-        {lado = sign(hspeed)}
-    vspeed = clamp(vspeed,-2,+2);
-    }
-
-// Muerto.
-if (cadaver)
-    {
-    x = xstart+20*sin((y-ystart)/15);
-    y += 2;
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_suelo">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// CHOCAR.
-
-if (vivo == true)
-    {
-    vspeed = -abs(vspeed);
-    hspeed *= -1;
-    move_outside_solid(90,100);
-    }
-else if (alarm[5] &lt; 0)
-    {
-    alarm[5] = 1*FPS;
-    }
 </string>
           </argument>
         </arguments>
@@ -237,40 +97,29 @@ presa = noone;
 
 image_yscale = +1;
 
-if (vivo)
+switch (estado)
     {
-    image_angle = direction;
-    if (hspeed &lt; 0)
+    case pez_muriendo:
         {
-        image_yscale = -1;
+        image_angle = 180;
+        draw_self();
+        break;
+        }
+    case pez_cadaver:
+        {
+        draw_sprite_ext(spr_cadaver,0,x,y,image_xscale,image_yscale,0,-1,1);
+        draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,0,-1,alarm[5]/FPS);
+        break;
+        }
+    default:
+        {
+        image_angle = direction;
+        if (hspeed &lt; 0)
+            {image_yscale = -1}
+        draw_self();
+        break;
         }
     }
-
-if (cadaver)
-    {
-    image_angle = 180;
-    }
-
-draw_self();
-
-draw_set_colour(c_black)
-draw_set_font(font_info);
-draw_text(x,y-20,parze(energia_actual));
-
-
-/*
-if (alarm[5] &gt; 0)
-    {
-    draw_sprite_ext(spr_cadaver,0,x,y,image_xscale,image_yscale,0,-1,1);
-    draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,0,-1,alarm[5]/FPS);
-    }
-
-
-else
-    {
-    draw_self();
-    }
-*/
 </string>
           </argument>
         </arguments>

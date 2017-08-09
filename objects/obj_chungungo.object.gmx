@@ -29,7 +29,7 @@
 
 especie = CHUNGUNGO;
 
-place_mar();
+ubicar_en_mar();
 org_caracteristicas();
 org_nacer();
 </string>

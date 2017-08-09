@@ -3,7 +3,6 @@
 if (!vivo) {exit}
 
 vivo = false;
-cadaver = true;
 
 xstart = x;
 ystart = y;

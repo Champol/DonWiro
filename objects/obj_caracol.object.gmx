@@ -29,7 +29,7 @@
 
 especie = CARACOL;
 
-place_intermareal();
+ubicar_en_rocas();
 org_caracteristicas();
 org_nacer();
 </string>

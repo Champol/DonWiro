@@ -11,5 +11,4 @@ if (!vivo)                              {return noone}
 if (energia_actual > energia_hambre)    {return noone}
 if (instance_exists(comer))             {return presa}
 
-alarm[5] = 1*FPS;
 return collision_circle(x,y,radio,comer,1,1);

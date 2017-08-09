@@ -2,7 +2,7 @@
 
 var boton;
 
-boton = instance_create(W-080,H-080,obj_boton_buzo);
+boton = instance_create(W-080,H-120,obj_boton_buzo);
 boton.extraer = obj_huiro;
 boton.sprite_index = spr_boton_huiro;
 

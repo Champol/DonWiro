@@ -25,13 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// SUMERGIRSE.
+            <string>/// INICIALIZAR.
 
-bote = noone;
-pescado = noone;
+linea = noone;          // Línea de origen.
+altura = 0;             // Altura desde donde sale de línea.
+dist = 0;               // Distancia hasta línea.
+angulo = 335;           // Ángulo desde línea.
+radio[CONGRIO] = 0;     // Radio atracción de congrios.
+radio[JERGUILLA] = 0;   // Radio atracción de jerguillas.
 
-pescar = true;
-vspeed = 8;
+pescando = false;       // Si ya está activado.
+presa = noone;          // Presa ya atrapada.
 </string>
           </argument>
         </arguments>
@@ -54,25 +58,32 @@ vspeed = 8;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// COMPORTAMIENTO.
+            <string>/// POSICIONARSE.
 
-if (vspeed &lt; 0) &amp;&amp; (y &lt;= obj_barco.y)
+// De dónde sale de la línea principal.
+xstart = linea.x;
+ystart = max(linea.y-altura,MAREA);
+
+// Recogerse hacia el barco.
+if (linea.estado == linea_recogiendo)
     {
-    anzuelo_recoger();
+    angulo += sign(270-angulo)*0.5;
     }
 
-if (pescado != noone)
+// Posición del anzuelo.
+x = xstart+dist*(1+linea.porcentaje)*cos(degtorad(angulo))/2;
+y = ystart-dist*linea.porcentaje*sin(degtorad(angulo));
+
+// Traer consigo la presa.
+if (instance_exists(presa))
     {
-    pescado.x = x;
-    pescado.y = y;
-    pescado.image_angle = 75*pescado.lado;
+    presa.x = x;
+    presa.y = y;
     }
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="4" ename="obj_suelo">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -89,45 +100,66 @@ if (pescado != noone)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// DEVOLVERSE.
+            <string>/// ATRAER PECES.
 
-vspeed = -abs(vspeed);
-audio_play_sound(snd_cana,0.5,0);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_jerguilla">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// PESCARLO.
+if (instance_exists(presa)) {exit}
 
-if (pescar == true)
+var pez;
+
+pez = collision_circle(x,y,radio[CONGRIO],obj_congrio,1,0);
+if (instance_exists(pez))
     {
-    if (other.vivo == true)
+    if (pez.vivo)
         {
-        anzuelo_pescar(other);
-        audio_play_sound(snd_cana,0.5,0);
-        CAPTURAS[num(obj_jerguilla),other.edad] += 1;
-        DINERO += PRECIO[num(obj_jerguilla),other.edad];
+        pez.presa = self;
+        pez.estado = pez_cazando;
         }
     }
+    
+if (instance_exists(pez)) {exit}
+pez = collision_circle(x,y,radio[JERGUILLA],obj_jerguilla,1,0);
+if (instance_exists(pez))
+    {
+    if (pez.vivo)
+        {
+        pez.presa = self;
+        pez.estado = pez_cazando;
+        }
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_pez">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// ATRAPAR.
 
+// No está pescando.
+if (!pescando) {exit}
+
+// Atrapar pez.
+presa = other;
+presa.vivo = false;
+presa.estado = pez_pescado;
+presa.anzuelo = self;
+linea.faltan -= 1;
+pescando = false;
 </string>
           </argument>
         </arguments>
@@ -152,9 +184,25 @@ if (pescar == true)
             <kind>1</kind>
             <string>/// DIBUJARSE.
 
-draw_set_color(c_black);
-draw_line(x,y,x,obj_barco.y+obj_barco.ycana);
+if (pescando)
+    {
+    draw_set_color(c_red);
+    draw_circle(x,y,radio[CONGRIO],1);
+    draw_circle(x,y,radio[JERGUILLA],1);
+    }
+
+draw_set_color(COLOR_LINEA);
+draw_set_alpha(0.7);
+draw_line(xstart,ystart,x,y)
+
+image_index = linea.activado;
+image_angle = angulo;
+image_yscale = +1;
+if (angulo &lt; 270)
+    {image_yscale = -1}
 draw_self();
+
+
 </string>
           </argument>
         </arguments>

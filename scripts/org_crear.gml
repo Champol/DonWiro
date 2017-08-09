@@ -1,21 +1,14 @@
-/// CREA UN ORGANISMO SI QUEDA ESPACIO.
+/// CREA UN ORGANISMO SI HAY ESPACIO.
 
-// org_crear(x,y,especie);
+// org_crear(objeto,cria);
 
-xx = argument0;
-yy = argument1;
-especie = argument2;
+var org,cria;
 
-switch (especie)
-    {
-    case obj_pez:       limite = 115; break;
-    case obj_loco:      limite = 115; break;
-    case obj_jerguilla: limite = 125; break;
-    case obj_caracol:   limite = 140; break;
-    case obj_alga:      limite = 130; break;
-    default:            limite = 0; break;
-    }
+org = argument0;    // Tipo de organismo.
+cria = argument1;   // Si es una cría o al azar.
 
-if (instance_number(especie) > limite) {exit}
+// No hay espacio.
+if (instance_number(org) >= LIMITE[org_especie(org)]) {exit}
 
-return instance_create(xx,yy,especie);
+// Crearlo.
+instance_create(0,0,org);
